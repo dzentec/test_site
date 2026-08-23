@@ -1,0 +1,1294 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Init Studio | From Idea to Buildable Product</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0fdf4',
+                            500: '#10b981',
+                            600: '#059669',
+                            900: '#064e3b',
+                        },
+                        accent: {
+                            orange: '#f97316',
+                            cyan: '#06b6d4',
+                            emerald: '#10b981',
+                        },
+                        dark: {
+                            bg: '#090a0f',
+                            card: '#12141d',
+                            border: '#222634',
+                            hover: '#1a1d2b'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom scrollbar & visual refinements */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #090a0f;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #222634;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #333a4e;
+        }
+        .grid-bg {
+            background-size: 32px 32px;
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        }
+        .glow-effect {
+            box-shadow: 0 0 50px -10px rgba(16, 185, 129, 0.15);
+        }
+        .glow-effect-strong {
+            box-shadow: 0 0 60px -5px rgba(16, 185, 129, 0.25);
+        }
+    </style>
+</head>
+<body class="bg-[#090a0f] text-slate-200 font-sans antialiased min-h-screen grid-bg selection:bg-emerald-500 selection:text-black">
+
+    <header class="sticky top-0 z-40 bg-[#090a0f]/80 backdrop-blur-md border-b border-dark-border/60 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-500/20 to-cyan-500/20 border border-emerald-500/40 flex items-center justify-center font-mono font-bold text-emerald-400 text-sm group-hover:border-emerald-400 transition-colors">
+                    Init
+                </div>
+                <div>
+                    <span class="font-mono font-bold text-lg tracking-tight text-white block leading-none">Init Studio</span>
+                    <span class="text-[11px] text-slate-400 font-mono tracking-wider">0→1 PRODUCT ARCHITECTURE</span>
+                </div>
+            </a>
+
+            <!-- Nav Items & CTA -->
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
+                <a href="#what-i-do" class="hover:text-emerald-400 transition-colors">What I Do</a>
+                <a href="#the-difference" class="hover:text-emerald-400 transition-colors">Philosophy</a>
+                <a href="#services" class="hover:text-emerald-400 transition-colors">Engagements</a>
+                <a href="#demo-library" class="hover:text-emerald-400 transition-colors flex items-center gap-1.5 text-emerald-400">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                    <span>Deliverables</span>
+                </a>
+                <a href="#hardware-software" class="hover:text-emerald-400 transition-colors">Full-System</a>
+                <a href="#selected-work" class="hover:text-emerald-400 transition-colors">Selected Work</a>
+            </nav>
+
+            <div class="flex items-center gap-4">
+                <button onclick="openDiscoveryModal()" class="relative inline-flex items-center justify-center px-5 py-2.5 text-sm font-semibold text-black bg-emerald-400 rounded-xl hover:bg-emerald-300 transition-all transform active:scale-95 shadow-lg shadow-emerald-500/20">
+                    <span>Let's Talk</span>
+                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <section class="relative pt-12 pb-20 md:pt-24 md:pb-32 overflow-hidden">
+        <!-- Background Gradient Blobs -->
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-emerald-500/10 blur-[120px] rounded-full pointer-events-none"></div>
+        <div class="absolute top-1/3 right-10 w-[400px] h-[250px] bg-cyan-500/10 blur-[100px] rounded-full pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="max-w-4xl mx-auto text-center">
+                <!-- Category Badge -->
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-dark-card border border-dark-border text-xs font-mono text-emerald-400 mb-8">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                    <span>INIT STUDIO</span>
+                    <span class="text-slate-600">|</span>
+                    <span class="text-slate-400">Without the agency overhead</span>
+                </div>
+
+                <!-- Main Headline -->
+                <h1 class="text-4xl sm:text-6xl md:text-7xl font-extrabold text-white tracking-tight leading-[1.1] mb-6">
+                    Have an idea?<br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400">
+                        Let's figure out what to build.
+                    </span>
+                </h1>
+
+                <!-- Subtitle -->
+                <p class="text-lg sm:text-xl text-slate-300 max-w-2xl mx-auto font-normal leading-relaxed mb-10">
+                    I help founders turn ambiguous ideas into buildable products — from product validation and MVP architecture to hardware, firmware, software and production.
+                </p>
+
+                <!-- Hero CTAs -->
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
+                    <button onclick="openDiscoveryModal('Hero Call')" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-emerald-400 hover:bg-emerald-300 text-black font-bold text-base transition-all transform hover:-translate-y-0.5 shadow-xl shadow-emerald-500/20 flex items-center justify-center gap-3">
+                        <span>Start a Product Discovery</span>
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                    </button>
+                    <a href="#demo-library" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-dark-card border border-dark-border hover:border-emerald-500/50 text-slate-200 font-semibold text-base transition-colors flex items-center justify-center gap-2">
+                        <span>Download Sample Deliverables</span>
+                        <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Visual Flow Diagram -->
+            <div class="mt-8 max-w-5xl mx-auto bg-dark-card/90 border border-dark-border p-6 sm:p-8 rounded-2xl shadow-2xl backdrop-blur-sm glow-effect">
+                <div class="flex items-center justify-between pb-4 mb-6 border-b border-dark-border/80">
+                    <div class="flex items-center gap-2 text-xs font-mono text-slate-300 font-semibold">
+                        <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+                        <span>Product Execution Pipeline</span>
+                    </div>
+                    <span class="text-xs font-mono text-emerald-400">Structured 0→1 Path</span>
+                </div>
+
+                <!-- Interactive Pipeline Nodes -->
+                <div class="grid grid-cols-1 sm:grid-cols-5 gap-3 relative">
+                    <!-- Step 1 -->
+                    <div onclick="highlightStep(1)" id="step-node-1" class="cursor-pointer group p-4 rounded-xl bg-dark-bg border border-emerald-500/50 hover:border-emerald-400 transition-all text-center relative">
+                        <span class="text-[10px] font-mono text-emerald-400 block mb-1">STAGE 01</span>
+                        <span class="font-bold text-white text-sm block">IDEA</span>
+                        <span class="text-xs text-slate-400 mt-1 block">Concept & Vision</span>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div onclick="highlightStep(2)" id="step-node-2" class="cursor-pointer group p-4 rounded-xl bg-dark-bg border border-dark-border hover:border-emerald-400 transition-all text-center relative">
+                        <span class="text-[10px] font-mono text-slate-500 block mb-1">STAGE 02</span>
+                        <span class="font-bold text-white text-sm block">PROVE</span>
+                        <span class="text-xs text-slate-400 mt-1 block">Autopsy & Risks</span>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div onclick="highlightStep(3)" id="step-node-3" class="cursor-pointer group p-4 rounded-xl bg-dark-bg border border-dark-border hover:border-emerald-400 transition-all text-center relative">
+                        <span class="text-[10px] font-mono text-slate-500 block mb-1">STAGE 03</span>
+                        <span class="font-bold text-white text-sm block">ARCHITECT</span>
+                        <span class="text-xs text-slate-400 mt-1 block">PRD & Tech Spec</span>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div onclick="highlightStep(4)" id="step-node-4" class="cursor-pointer group p-4 rounded-xl bg-dark-bg border border-dark-border hover:border-emerald-400 transition-all text-center relative">
+                        <span class="text-[10px] font-mono text-slate-500 block mb-1">STAGE 04</span>
+                        <span class="font-bold text-white text-sm block">BUILD</span>
+                        <span class="text-xs text-slate-400 mt-1 block">HW / SW / Firmware</span>
+                    </div>
+
+                    <!-- Step 5 -->
+                    <div onclick="highlightStep(5)" id="step-node-5" class="cursor-pointer group p-4 rounded-xl bg-dark-bg border border-dark-border hover:border-emerald-400 transition-all text-center relative">
+                        <span class="text-[10px] font-mono text-slate-500 block mb-1">STAGE 05</span>
+                        <span class="font-bold text-white text-sm block">PRODUCE</span>
+                        <span class="text-xs text-slate-400 mt-1 block">DFM & Factory Scale</span>
+                    </div>
+                </div>
+
+                <!-- Pipeline Dynamic Output Info -->
+                <div id="pipeline-info" class="mt-6 p-4 rounded-xl bg-dark-bg/60 border border-dark-border/80 text-xs font-mono text-slate-300 flex items-center justify-between">
+                    <div class="flex items-center gap-3">
+                        <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                        <span id="pipeline-desc">Stage 01: Turn raw thoughts into validated product hypotheses.</span>
+                    </div>
+                    <span class="text-slate-500 hidden sm:inline">Click stages to inspect deliverables</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="what-i-do" class="py-20 border-t border-dark-border/50 bg-dark-bg/40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16">
+                <div>
+                    <span class="text-xs font-mono text-emerald-400 uppercase tracking-widest block mb-2">// Scope & Capabilities</span>
+                    <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
+                        From vague idea to working product
+                    </h2>
+                </div>
+                <p class="text-slate-400 max-w-md mt-4 md:mt-0 text-sm">
+                    A rare cross-disciplinary capability covering product strategy, embedded systems engineering, and physical manufacturing.
+                </p>
+            </div>
+
+            <!-- 4 Core Capabilities Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Card 1: Discovery -->
+                <div class="p-8 rounded-2xl bg-dark-card border border-dark-border hover:border-emerald-500/40 transition-all duration-300 group flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">🔎 Product Discovery</h3>
+                        <p class="text-xs font-mono text-emerald-400 mb-6">Is it worth building?</p>
+                        <ul class="space-y-2.5 text-sm text-slate-300">
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>Market research</li>
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>Competitive analysis</li>
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>Opportunity discovery</li>
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>Idea autopsy</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Card 2: Architecture -->
+                <div class="p-8 rounded-2xl bg-dark-card border border-dark-border hover:border-cyan-500/40 transition-all duration-300 group flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 4a2 2 0 114 0v1a2 2 0 01-2 2 2 2 0 01-2-2V4zm-6 8a2 2 0 114 0v1a2 2 0 01-2 2 2 2 0 01-2-2v-1zm12 0a2 2 0 114 0v1a2 2 0 01-2 2 2 2 0 01-2-2v-1zM4 18a2 2 0 114 0v1a2 2 0 01-2 2 2 2 0 01-2-2v-1z"/></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">🧩 Product Architecture</h3>
+                        <p class="text-xs font-mono text-cyan-400 mb-6">What exactly should we build?</p>
+                        <ul class="space-y-2.5 text-sm text-slate-300">
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>Product strategy</li>
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>MVP definition</li>
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>PRD & User flows</li>
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>System architecture</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Card 3: Engineering -->
+                <div class="p-8 rounded-2xl bg-dark-card border border-dark-border hover:border-amber-500/40 transition-all duration-300 group flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">⚙️ Engineering</h3>
+                        <p class="text-xs font-mono text-amber-400 mb-6">How should it work?</p>
+                        <ul class="space-y-2.5 text-sm text-slate-300">
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>Software & Cloud</li>
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>Hardware & Firmware</li>
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>AI / Data integrations</li>
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>IoT ecosystem</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Card 4: Production -->
+                <div class="p-8 rounded-2xl bg-dark-card border border-dark-border hover:border-purple-500/40 transition-all duration-300 group flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/20 text-purple-400 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5m0 0h4m-4 0V11m0 0h4m-4 0H9"/></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">🏭 Production</h3>
+                        <p class="text-xs font-mono text-purple-400 mb-6">Can we actually make it?</p>
+                        <ul class="space-y-2.5 text-sm text-slate-300">
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-purple-400"></span>DFM (Design for Mfg)</li>
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-purple-400"></span>BOM optimization</li>
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-purple-400"></span>Supply chain setup</li>
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-purple-400"></span>Prototyping & Pilot run</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="the-difference" class="py-24 border-t border-dark-border/50 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Title -->
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-mono text-emerald-400 uppercase tracking-widest block mb-2">// Paradigm Shift</span>
+                <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight mb-6">
+                    Most teams start with technology.<br>
+                    <span class="text-emerald-400">I start with the product.</span>
+                </h2>
+                <p class="text-slate-300 text-base sm:text-lg">
+                    Jumping straight into coding or circuit design without validation leads to built features nobody buys. Here is how my methodology reverses the risk curve.
+                </p>
+            </div>
+
+            <!-- Comparison Table / Layout -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch mb-16">
+                <!-- Typical Approach (Red/Gray theme) -->
+                <div class="p-8 rounded-2xl bg-dark-card/60 border border-red-500/20 relative overflow-hidden">
+                    <div class="flex items-center justify-between mb-6 pb-4 border-b border-dark-border">
+                        <span class="text-xs font-mono text-red-400 font-bold uppercase tracking-wider">Typical Agency / Team Approach</span>
+                        <span class="text-xs px-2.5 py-1 rounded bg-red-500/10 text-red-400 font-mono">High Waste Risk</span>
+                    </div>
+                    <div class="space-y-3 font-mono text-sm">
+                        <div class="p-3 rounded-lg bg-dark-bg/80 border border-dark-border text-slate-400 flex items-center justify-between">
+                            <span>01. IDEA</span>
+                            <span class="text-slate-600">→</span>
+                        </div>
+                        <div class="p-3 rounded-lg bg-red-500/5 border border-red-500/20 text-red-300 flex items-center justify-between">
+                            <span>02. TECHNOLOGY</span>
+                            <span class="text-slate-500">Jump straight into dev</span>
+                        </div>
+                        <div class="p-3 rounded-lg bg-dark-bg/80 border border-dark-border text-slate-400 flex items-center justify-between">
+                            <span>03. PROTOTYPE</span>
+                            <span class="text-slate-600">Over-engineered</span>
+                        </div>
+                        <div class="p-3 rounded-lg bg-red-950/40 border border-red-500/40 text-red-400 font-bold flex items-center justify-between">
+                            <span>04. "How do we sell this?"</span>
+                            <span>🚨 Danger Zone</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- My Approach (Emerald theme) -->
+                <div class="p-8 rounded-2xl bg-dark-card border border-emerald-500/40 glow-effect relative overflow-hidden">
+                    <div class="flex items-center justify-between mb-6 pb-4 border-b border-dark-border">
+                        <span class="text-xs font-mono text-emerald-400 font-bold uppercase tracking-wider">Init Studio Approach</span>
+                        <span class="text-xs px-2.5 py-1 rounded bg-emerald-500/10 text-emerald-400 font-mono">De-risked Path</span>
+                    </div>
+                    <div class="grid grid-cols-2 gap-2.5 font-mono text-xs">
+                        <div class="p-3 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-emerald-300">PROBLEM</div>
+                        <div class="p-3 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-emerald-300">CUSTOMER</div>
+                        <div class="p-3 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-emerald-300">PRODUCT</div>
+                        <div class="p-3 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-emerald-300">VALIDATION</div>
+                        <div class="p-3 rounded-lg bg-emerald-500/20 border border-emerald-400 text-white font-bold col-span-2">ARCHITECTURE</div>
+                        <div class="p-3 rounded-lg bg-dark-bg border border-dark-border text-slate-300">MVP BUILD</div>
+                        <div class="p-3 rounded-lg bg-dark-bg border border-dark-border text-slate-300">PRODUCTION</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Central Philosophy Banner -->
+            <div class="max-w-4xl mx-auto p-8 rounded-2xl bg-gradient-to-r from-emerald-950/40 via-dark-card to-cyan-950/40 border border-emerald-500/30 text-center relative">
+                <p class="text-xs font-mono text-emerald-400 uppercase tracking-widest mb-2">Core Philosophy</p>
+                <blockquote class="text-xl sm:text-2xl font-bold text-white tracking-tight">
+                    "The goal isn't to build more. It's to find the smallest product worth building."
+                </blockquote>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="py-24 border-t border-dark-border/50 bg-dark-bg/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-mono text-emerald-400 uppercase tracking-widest block mb-2">// Productized Engagements</span>
+                <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight mb-4">
+                    Clear Outcome-Driven Pricing
+                </h2>
+                <p class="text-slate-400 text-base">
+                    No unpredictable hourly billing. Fixed scope, predictable timelines, and professional deliverables designed for founder momentum.
+                </p>
+            </div>
+
+            <!-- 3 Engagement Tiers -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Tier 1: Product Autopsy ($500) -->
+                <div class="p-8 rounded-2xl bg-dark-card border border-dark-border hover:border-slate-500 transition-all flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs font-mono text-slate-400">TIER 01</span>
+                            <span class="text-xs font-mono px-2 py-1 rounded bg-slate-800 text-slate-300">3–5 Business Days</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-1">Product Autopsy</h3>
+                        <p class="text-xs font-mono text-emerald-400 mb-4">Before you spend engineering capital.</p>
+                        <p class="text-xs text-slate-300 mb-6 leading-relaxed">For founders with an unverified concept who need an objective assessment before committing capital.</p>
+                        
+                        <div class="border-t border-dark-border/80 pt-6 mb-6">
+                            <span class="text-xs font-mono text-slate-400 uppercase block mb-3">You Receive:</span>
+                            <ul class="space-y-2 text-xs text-slate-300">
+                                <li class="flex items-center gap-2"><svg class="w-4 h-4 text-emerald-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Executive Summary</li>
+                                <li class="flex items-center gap-2"><svg class="w-4 h-4 text-emerald-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Competitive Landscape Map</li>
+                                <li class="flex items-center gap-2"><svg class="w-4 h-4 text-emerald-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Technical Feasibility Assessment</li>
+                                <li class="flex items-center gap-2"><svg class="w-4 h-4 text-emerald-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Risk Matrix & Monetization Check</li>
+                                <li class="flex items-center gap-2 font-bold text-white"><svg class="w-4 h-4 text-emerald-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Verdict: BUILD / PIVOT / KILL</li>
+                                <li class="flex items-center gap-2 font-semibold text-emerald-300"><svg class="w-4 h-4 text-emerald-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> 60-min Founder Review Call</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="flex items-baseline gap-2 mb-6">
+                            <span class="text-3xl font-bold text-white">$500</span>
+                            <span class="text-xs font-mono text-slate-400">Fixed Fee</span>
+                        </div>
+                        <button onclick="openDiscoveryModal('Product Autopsy')" class="w-full py-3 rounded-xl bg-dark-bg border border-dark-border hover:border-emerald-500 text-slate-200 font-semibold text-sm transition-colors">
+                            Book Product Autopsy
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Tier 2: Product Blueprint ($2,500 - Featured) -->
+                <div class="p-8 rounded-2xl bg-dark-card border-2 border-emerald-500/60 glow-effect relative flex flex-col justify-between">
+                    <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 px-3 py-1 bg-emerald-400 text-black text-[10px] font-mono font-bold uppercase tracking-wider rounded-full">
+                        Most Popular for Founders
+                    </div>
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs font-mono text-emerald-400">TIER 02</span>
+                            <span class="text-xs font-mono px-2 py-1 rounded bg-emerald-500/10 text-emerald-400">7–14 Business Days</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-1">Product Blueprint</h3>
+                        <p class="text-xs font-mono text-emerald-400 mb-4">Define exactly what to build.</p>
+                        <p class="text-xs text-slate-300 mb-6 leading-relaxed">Complete strategic and engineering package ready to hand off to developers, factory teams, or investors.</p>
+                        
+                        <div class="border-t border-dark-border/80 pt-6 mb-6">
+                            <span class="text-xs font-mono text-slate-400 uppercase block mb-3">Professional Deliverable Pack:</span>
+                            <ul class="space-y-2 text-xs text-slate-300">
+                                <li class="flex items-center gap-2"><svg class="w-4 h-4 text-emerald-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Executive Summary & Product Strategy</li>
+                                <li class="flex items-center gap-2"><svg class="w-4 h-4 text-emerald-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> MVP Scope & Key Feature Boundary</li>
+                                <li class="flex items-center gap-2"><svg class="w-4 h-4 text-emerald-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> User Flows & System Architecture</li>
+                                <li class="flex items-center gap-2"><svg class="w-4 h-4 text-emerald-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> PRD & Technical Specifications</li>
+                                <li class="flex items-center gap-2"><svg class="w-4 h-4 text-emerald-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Validation Plan & AI Build Pack</li>
+                                <li class="flex items-center gap-2 font-semibold text-emerald-300"><svg class="w-4 h-4 text-emerald-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> 60-min Dedicated Founder Review</li>
+                            </ul>
+                        </div>
+
+                        <!-- BUILD CREDIT BANNER -->
+                        <div class="mb-6 p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-[11px] text-emerald-300 font-mono flex items-center gap-2">
+                            <span>🎁</span>
+                            <span><strong>BUILD CREDIT:</strong> 100% of your Blueprint fee applies toward full build.</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="flex items-baseline gap-2 mb-6">
+                            <span class="text-3xl font-bold text-white">$2,500</span>
+                            <span class="text-xs font-mono text-slate-400">Fixed Fee</span>
+                        </div>
+                        <button onclick="openDiscoveryModal('Product Blueprint')" class="w-full py-3 rounded-xl bg-emerald-400 hover:bg-emerald-300 text-black font-bold text-sm transition-colors shadow-lg shadow-emerald-500/20">
+                            Start Blueprint
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Tier 3: 0->1 Product Development (From $12,000) -->
+                <div class="p-8 rounded-2xl bg-dark-card border border-dark-border hover:border-slate-500 transition-all flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs font-mono text-cyan-400">TIER 03</span>
+                            <span class="text-xs font-mono px-2 py-1 rounded bg-cyan-500/10 text-cyan-400">Execution Phase</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-1">0→1 Product Dev</h3>
+                        <p class="text-xs font-mono text-cyan-400 mb-4">From blueprint to working product.</p>
+                        <p class="text-xs text-slate-300 mb-6 leading-relaxed">End-to-end execution supervision spanning software, firmware, custom hardware, prototyping, and production tooling.</p>
+                        
+                        <div class="border-t border-dark-border/80 pt-6 mb-6">
+                            <span class="text-xs font-mono text-slate-400 uppercase block mb-3">Scope Spans:</span>
+                            <ul class="space-y-2 text-xs text-slate-300">
+                                <li class="flex items-center gap-2"><svg class="w-4 h-4 text-cyan-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Full-stack Software & AI backend</li>
+                                <li class="flex items-center gap-2"><svg class="w-4 h-4 text-cyan-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Hardware PCB & Firmware</li>
+                                <li class="flex items-center gap-2"><svg class="w-4 h-4 text-cyan-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> IoT Cloud Integration</li>
+                                <li class="flex items-center gap-2"><svg class="w-4 h-4 text-cyan-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Prototype & DFM Setup</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="mb-6">
+                            <div class="flex items-baseline gap-2">
+                                <span class="text-2xl font-bold text-white">From $12,000</span>
+                            </div>
+                            <p class="text-[11px] font-mono text-slate-400 mt-1">Fixed price defined after Blueprint</p>
+                        </div>
+                        <button onclick="openDiscoveryModal('0->1 Product Dev')" class="w-full py-3 rounded-xl bg-dark-bg border border-dark-border hover:border-cyan-500 text-slate-200 font-semibold text-sm transition-colors">
+                            Discuss Full Build
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="demo-library" class="py-24 border-t border-dark-border/50 bg-[#0c0e17] relative">
+        <!-- Ambient background glow -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[350px] bg-emerald-500/5 blur-[140px] rounded-full pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            
+            <!-- Section Header -->
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-mono mb-4">
+                    <span>🔍 SEE EXACTLY WHAT YOU GET</span>
+                </div>
+                <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight mb-4">
+                    Don't take our word for it.
+                </h2>
+                <p class="text-slate-300 text-base sm:text-lg">
+                    Download real, unredacted-style deliverable examples of what you'll receive for your project.
+                </p>
+            </div>
+
+            <!-- 3 Sample Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch mb-12">
+                
+                <!-- Card 1: Product Autopsy Sample -->
+                <div class="p-8 rounded-2xl bg-dark-card border border-dark-border hover:border-slate-500 transition-all duration-300 flex flex-col justify-between group transform hover:-translate-y-1">
+                    <div>
+                        <div class="flex items-center justify-between mb-4 pb-3 border-b border-dark-border">
+                            <span class="text-2xl">📦</span>
+                            <span class="text-[10px] font-mono px-2.5 py-1 rounded bg-slate-800 text-slate-300 border border-slate-700">PDF · 2.4 MB</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-1">PRODUCT AUTOPSY</h3>
+                        <p class="text-xs font-mono text-emerald-400 mb-4">Sample Deliverable</p>
+                        
+                        <div class="p-3 rounded-xl bg-dark-bg border border-dark-border mb-6">
+                            <span class="text-[10px] font-mono text-slate-400 block mb-1">FULL DEMO CASE STUDY:</span>
+                            <p class="text-xs font-semibold text-slate-200">"AI Inventory Copilot for Shopify"</p>
+                        </div>
+
+                        <ul class="space-y-3 text-xs text-slate-300 mb-8 font-mono">
+                            <li class="flex items-center gap-2.5">
+                                <svg class="w-4 h-4 text-emerald-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                <span>18-page Go/No-Go decision</span>
+                            </li>
+                            <li class="flex items-center gap-2.5">
+                                <svg class="w-4 h-4 text-emerald-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                <span>Market signals & competitor matrix</span>
+                            </li>
+                            <li class="flex items-center gap-2.5">
+                                <svg class="w-4 h-4 text-emerald-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                <span>MVP scope & validation plan</span>
+                            </li>
+                            <li class="flex items-center gap-2.5">
+                                <svg class="w-4 h-4 text-emerald-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                <span>"What NOT to build" section</span>
+                            </li>
+                            <li class="flex items-center gap-2.5">
+                                <svg class="w-4 h-4 text-emerald-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                <span>Next 5 concrete execution steps</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <button onclick="downloadSample('INIT-Studio-Product-Autopsy-Sample.pdf', 'product_autopsy')" class="w-full py-3.5 px-4 rounded-xl bg-dark-bg border border-dark-border hover:border-emerald-500 text-slate-200 font-semibold text-xs font-mono transition-all flex items-center justify-center gap-2 group-hover:bg-slate-800">
+                        <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                        <span>↓ Download Sample (PDF · 2.4 MB)</span>
+                    </button>
+                </div>
+
+                <!-- Card 2: Product Blueprint Sample (FLAGSHIP VISUAL HIGHLIGHT) -->
+                <div class="p-8 rounded-2xl bg-dark-card border-2 border-emerald-400/80 glow-effect-strong relative flex flex-col justify-between group transform md:-translate-y-2">
+                    <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 px-3 py-1 bg-gradient-to-r from-emerald-400 to-teal-300 text-black text-[10px] font-mono font-extrabold uppercase tracking-wider rounded-full shadow-lg">
+                        ⭐ FULL PACKAGE · MOST POPULAR
+                    </div>
+
+                    <div>
+                        <div class="flex items-center justify-between mb-4 pb-3 border-b border-dark-border">
+                            <span class="text-2xl">📐</span>
+                            <span class="text-[10px] font-mono px-2.5 py-1 rounded bg-emerald-500/20 text-emerald-300 font-bold border border-emerald-500/40">ZIP · 8.1 MB</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-1">PRODUCT BLUEPRINT</h3>
+                        <p class="text-xs font-mono text-emerald-400 mb-4">Complete Engineering Pack</p>
+                        
+                        <div class="p-3 rounded-xl bg-dark-bg border border-emerald-500/30 mb-6">
+                            <span class="text-[10px] font-mono text-slate-400 block mb-1">FULL DEMO CASE STUDY:</span>
+                            <p class="text-xs font-semibold text-emerald-300">"AI Inventory Copilot for Shopify"</p>
+                        </div>
+
+                        <ul class="space-y-3 text-xs text-slate-200 mb-8 font-mono">
+                            <li class="flex items-center gap-2.5">
+                                <svg class="w-4 h-4 text-emerald-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                <span class="font-bold text-white">12 separate PDFs in ZIP</span>
+                            </li>
+                            <li class="flex items-center gap-2.5">
+                                <svg class="w-4 h-4 text-emerald-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                <span>Executive Summary ($18-25k MVP budget)</span>
+                            </li>
+                            <li class="flex items-center gap-2.5">
+                                <svg class="w-4 h-4 text-emerald-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                <span>Full PRD with user stories & priorities</span>
+                            </li>
+                            <li class="flex items-center gap-2.5">
+                                <svg class="w-4 h-4 text-emerald-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                <span>System Architecture & API diagrams</span>
+                            </li>
+                            <li class="flex items-center gap-2.5">
+                                <svg class="w-4 h-4 text-emerald-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                <span>Technical Spec with requirement IDs</span>
+                            </li>
+                            <li class="flex items-center gap-2.5">
+                                <svg class="w-4 h-4 text-emerald-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                <span class="text-emerald-300 font-semibold">AI Build Pack (Claude / Cursor ready)</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <button onclick="downloadSample('INIT-Studio-Product-Blueprint-Sample.zip', 'product_blueprint')" class="w-full py-4 px-4 rounded-xl bg-emerald-400 hover:bg-emerald-300 text-black font-extrabold text-xs font-mono transition-all flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/25 active:scale-95">
+                        <svg class="w-4 h-4 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                        <span>↓ Download Full Package (ZIP · 8.1 MB)</span>
+                    </button>
+                </div>
+
+                <!-- Card 3: Hardware Feasibility Sample -->
+                <div class="p-8 rounded-2xl bg-dark-card border border-dark-border hover:border-slate-500 transition-all duration-300 flex flex-col justify-between group transform hover:-translate-y-1">
+                    <div>
+                        <div class="flex items-center justify-between mb-4 pb-3 border-b border-dark-border">
+                            <span class="text-2xl">⚙️</span>
+                            <span class="text-[10px] font-mono px-2.5 py-1 rounded bg-slate-800 text-slate-300 border border-slate-700">ZIP · 6.3 MB</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-1">HARDWARE FEASIBILITY</h3>
+                        <p class="text-xs font-mono text-cyan-400 mb-4">Physical Systems Pack</p>
+                        
+                        <div class="p-3 rounded-xl bg-dark-bg border border-dark-border mb-6">
+                            <span class="text-[10px] font-mono text-slate-400 block mb-1">FULL DEMO CASE STUDY:</span>
+                            <p class="text-xs font-semibold text-slate-200">"Smart Industrial IoT Sensor"</p>
+                        </div>
+
+                        <ul class="space-y-3 text-xs text-slate-300 mb-8 font-mono">
+                            <li class="flex items-center gap-2.5">
+                                <svg class="w-4 h-4 text-cyan-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                <span>13 docs + Excel spreadsheets</span>
+                            </li>
+                            <li class="flex items-center gap-2.5">
+                                <svg class="w-4 h-4 text-cyan-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                <span>Preliminary BOM with alternative parts</span>
+                            </li>
+                            <li class="flex items-center gap-2.5">
+                                <svg class="w-4 h-4 text-cyan-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                <span>Hardware & Firmware architecture</span>
+                            </li>
+                            <li class="flex items-center gap-2.5">
+                                <svg class="w-4 h-4 text-cyan-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                <span>Prototype cost breakdown</span>
+                            </li>
+                            <li class="flex items-center gap-2.5">
+                                <svg class="w-4 h-4 text-cyan-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                <span>Manufacturing plan (100 → 10k units)</span>
+                            </li>
+                            <li class="flex items-center gap-2.5">
+                                <svg class="w-4 h-4 text-cyan-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                <span>DFM analysis & top 5 risk factors</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <button onclick="downloadSample('INIT-Studio-Hardware-Feasibility-Sample.zip', 'hardware_feasibility')" class="w-full py-3.5 px-4 rounded-xl bg-dark-bg border border-dark-border hover:border-cyan-500 text-slate-200 font-semibold text-xs font-mono transition-all flex items-center justify-center gap-2 group-hover:bg-slate-800">
+                        <svg class="w-4 h-4 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                        <span>↓ Download Sample (ZIP · 6.3 MB)</span>
+                    </button>
+                </div>
+
+            </div>
+
+            <!-- Block Footer Guarantee -->
+            <div class="text-center">
+                <p class="text-xs font-mono text-slate-400 bg-dark-card/60 inline-block px-4 py-2 rounded-full border border-dark-border">
+                    🔒 <strong class="text-white">No email required. No lead capture.</strong> Just real engineering work you can inspect immediately.
+                </p>
+            </div>
+
+            <!-- BRIDGE CTA SECTION (FLOWS DIRECTLY AFTER DEMO LIBRARY) -->
+            <div class="mt-16 max-w-4xl mx-auto p-8 sm:p-10 rounded-3xl bg-gradient-to-r from-emerald-950/40 via-dark-card to-cyan-950/40 border border-emerald-500/40 text-center relative overflow-hidden glow-effect">
+                <div class="mb-4">
+                    <span class="text-xs font-mono text-emerald-400 uppercase tracking-widest block font-semibold">// Ready for Your Product?</span>
+                    <h3 class="text-2xl sm:text-4xl font-extrabold text-white mt-1">Want this for your product?</h3>
+                    <p class="text-sm sm:text-base text-slate-300 mt-2">
+                        This is exactly what you'll receive for your product idea.
+                    </p>
+                </div>
+
+                <!-- Highlighted Blueprint Card CTA -->
+                <div class="mt-8 p-6 rounded-2xl bg-dark-bg/90 border border-emerald-500/50 max-w-xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
+                    <div class="text-left">
+                        <span class="text-[10px] font-mono font-bold text-emerald-400 tracking-wider block">FLAGSHIP ENGAGEMENT</span>
+                        <h4 class="text-xl font-bold text-white">PRODUCT BLUEPRINT</h4>
+                        <div class="flex items-center gap-2 mt-1">
+                            <span class="text-lg font-bold text-emerald-400">$2,500</span>
+                            <span class="text-slate-500">·</span>
+                            <span class="text-xs font-mono text-slate-300">7–14 business days</span>
+                        </div>
+                    </div>
+
+                    <button onclick="openDiscoveryModal('Product Blueprint')" class="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-emerald-400 hover:bg-emerald-300 text-black font-extrabold text-sm transition-all transform hover:scale-105 shadow-lg shadow-emerald-500/20 whitespace-nowrap">
+                        Get My Blueprint →
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="hardware-software" class="py-24 border-t border-dark-border/50 relative overflow-hidden">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-gradient-to-r from-emerald-500/10 via-cyan-500/10 to-amber-500/10 blur-[140px] rounded-full pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Text Column -->
+                <div class="lg:col-span-5 space-y-6">
+                    <span class="text-xs font-mono text-emerald-400 uppercase tracking-widest block font-semibold">// Systems Architecture</span>
+                    <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-[1.1]">
+                        Software is easy to prototype.<br>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-slate-300 via-slate-100 to-slate-400">Products are not.</span>
+                    </h2>
+                    <p class="text-slate-300 text-base leading-relaxed">
+                        My background spans software, embedded systems, hardware development and manufacturing — allowing product decisions to be made with the entire system topology in mind.
+                    </p>
+
+                    <div class="space-y-3 pt-2">
+                        <div class="p-4 rounded-xl bg-dark-card/80 border border-emerald-500/30 backdrop-blur-md flex items-start gap-3.5">
+                            <div class="w-2 h-2 rounded-full bg-emerald-400 mt-2 shrink-0"></div>
+                            <p class="text-xs text-slate-300 font-mono">A software decision can change the BOM cost.</p>
+                        </div>
+                        <div class="p-4 rounded-xl bg-dark-card/80 border border-cyan-500/30 backdrop-blur-md flex items-start gap-3.5">
+                            <div class="w-2 h-2 rounded-full bg-cyan-400 mt-2 shrink-0"></div>
+                            <p class="text-xs text-slate-300 font-mono">A hardware decision can change the cloud architecture.</p>
+                        </div>
+                        <div class="p-4 rounded-xl bg-dark-card/80 border border-amber-500/30 backdrop-blur-md flex items-start gap-3.5">
+                            <div class="w-2 h-2 rounded-full bg-amber-400 mt-2 shrink-0"></div>
+                            <p class="text-xs text-slate-300 font-mono">Production constraints can change the product itself.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Visual System Diagram -->
+                <div class="lg:col-span-7">
+                    <div class="p-6 sm:p-8 rounded-3xl bg-gradient-to-b from-[#121524]/90 via-[#0d0f1a]/95 to-[#080910] border border-slate-700/60 shadow-2xl backdrop-blur-xl relative overflow-hidden group">
+                        
+                        <!-- Top HUD Bar -->
+                        <div class="flex flex-wrap items-center justify-between gap-4 pb-6 mb-8 border-b border-slate-800">
+                            <div class="flex items-center gap-3">
+                                <span class="relative flex h-2.5 w-2.5">
+                                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                                    <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+                                </span>
+                                <span class="text-xs font-mono text-slate-300 font-semibold tracking-wider">CROSS-DISCIPLINARY TOPOLOGY</span>
+                            </div>
+                            <div class="flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900/80 border border-slate-700 text-[11px] font-mono text-emerald-400">
+                                Holistic System Check
+                            </div>
+                        </div>
+
+                        <!-- ARCHITECTURE GRAPH CONTAINER -->
+                        <div class="relative space-y-6">
+                            
+                            <!-- Top Input Node -->
+                            <div class="relative flex justify-center z-10">
+                                <div class="px-6 py-3 rounded-2xl bg-gradient-to-r from-emerald-500/20 via-slate-900 to-cyan-500/20 border border-emerald-400/50 text-white font-mono text-xs font-bold tracking-wider shadow-lg shadow-emerald-500/10 flex items-center gap-2">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                                    <span>CORE PRODUCT GOALS & CONSTRAINTS</span>
+                                </div>
+                            </div>
+
+                            <!-- Interactive Layer Selection Cards (3 Pillars) -->
+                            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 relative z-10">
+                                
+                                <!-- Software Layer Node -->
+                                <div onclick="selectArchLayer('software')" id="arch-node-software" class="cursor-pointer p-5 rounded-2xl bg-[#141828]/90 border border-emerald-500/50 hover:border-emerald-400 transition-all duration-300 shadow-lg relative overflow-hidden">
+                                    <div class="flex items-center justify-between mb-3">
+                                        <span class="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">SOFTWARE</span>
+                                        <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+                                    </div>
+                                    <h4 class="text-sm font-bold text-white mb-1">Cloud & Apps</h4>
+                                    <p class="text-[11px] text-slate-400 font-mono">React, APIs, AI</p>
+                                </div>
+
+                                <!-- Hardware Layer Node -->
+                                <div onclick="selectArchLayer('hardware')" id="arch-node-hardware" class="cursor-pointer p-5 rounded-2xl bg-[#141828]/90 border border-slate-700/80 hover:border-cyan-400 transition-all duration-300 shadow-lg relative overflow-hidden">
+                                    <div class="flex items-center justify-between mb-3">
+                                        <span class="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">HARDWARE</span>
+                                        <svg class="w-4 h-4 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m16-6h2m-2 6h2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/></svg>
+                                    </div>
+                                    <h4 class="text-sm font-bold text-white mb-1">PCB & Firmware</h4>
+                                    <p class="text-[11px] text-slate-400 font-mono">ESP32, Sensors, Power</p>
+                                </div>
+
+                                <!-- Business & Production Node -->
+                                <div onclick="selectArchLayer('business')" id="arch-node-business" class="cursor-pointer p-5 rounded-2xl bg-[#141828]/90 border border-slate-700/80 hover:border-amber-400 transition-all duration-300 shadow-lg relative overflow-hidden">
+                                    <div class="flex items-center justify-between mb-3">
+                                        <span class="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-amber-500/10 text-amber-400 border border-amber-500/20">BUSINESS</span>
+                                        <svg class="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5m0 0h4m-4 0V11m0 0h4m-4 0H9"/></svg>
+                                    </div>
+                                    <h4 class="text-sm font-bold text-white mb-1">Production & COGS</h4>
+                                    <p class="text-[11px] text-slate-400 font-mono">DFM, Sourcing, Tooling</p>
+                                </div>
+
+                            </div>
+
+                            <!-- Inspector Drawer -->
+                            <div class="mt-6 p-5 rounded-2xl bg-[#090b14]/90 border border-slate-800 relative z-10 transition-all" id="arch-inspector-box">
+                                <div class="flex items-center justify-between mb-3 pb-3 border-b border-slate-800/80">
+                                    <div class="flex items-center gap-2">
+                                        <div class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" id="arch-status-dot"></div>
+                                        <span class="text-xs font-mono font-bold text-white uppercase tracking-wider" id="arch-inspector-title">Software & Cloud Layer Details</span>
+                                    </div>
+                                </div>
+                                
+                                <p class="text-xs text-slate-300 mb-4 font-mono leading-relaxed" id="arch-inspector-desc">
+                                    Architecting cloud relays, REST/WebSocket telemetry endpoints, automated AI data processing, and responsive dashboards.
+                                </p>
+
+                                <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 font-mono text-[11px]" id="arch-inspector-tags">
+                                    <div class="p-2 rounded bg-slate-900 border border-slate-800 text-emerald-300">✓ Low Latency API</div>
+                                    <div class="p-2 rounded bg-slate-900 border border-slate-800 text-emerald-300">✓ WebSockets Relay</div>
+                                    <div class="p-2 rounded bg-slate-900 border border-slate-800 text-emerald-300">✓ AI Backend Spec</div>
+                                    <div class="p-2 rounded bg-slate-900 border border-slate-800 text-emerald-300">✓ Mobile & Web App</div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="selected-work" class="py-24 border-t border-dark-border/50 bg-dark-bg/40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16">
+                <div>
+                    <span class="text-xs font-mono text-emerald-400 uppercase tracking-widest block mb-2">// Engineering Case Studies</span>
+                    <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
+                        Selected Projects
+                    </h2>
+                </div>
+                <p class="text-slate-400 text-sm max-w-sm mt-4 md:mt-0">
+                    Real-world engineering across access control, precision hardware, AI SaaS, and IoT telemetry.
+                </p>
+            </div>
+
+            <!-- Project Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Case 1 -->
+                <div class="p-8 rounded-2xl bg-dark-card border border-dark-border hover:border-emerald-500/40 transition-all group">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-xs font-mono text-emerald-400">HARDWARE + CLOUD</span>
+                        <span class="text-xs font-mono text-slate-500">Security Ecosystem</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4 group-hover:text-emerald-400 transition-colors">Security & Access Control</h3>
+                    <div class="space-y-3 text-sm text-slate-300">
+                        <p><strong class="text-white">Problem:</strong> Legacy hardware lock controllers lacked cloud synchronization and real-time trigger capabilities.</p>
+                        <p><strong class="text-white">What I built:</strong> Custom PCB architecture, ESP32 micro-controller firmware, low-latency WebSocket cloud relay, and mobile unlock app.</p>
+                        <div class="p-3 rounded-lg bg-dark-bg border border-dark-border text-xs font-mono text-emerald-300">
+                            Outcome: Production-ready prototype, cloud integration & pilot validation.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case 2 -->
+                <div class="p-8 rounded-2xl bg-dark-card border border-dark-border hover:border-cyan-500/40 transition-all group">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-xs font-mono text-cyan-400">EMBEDDED + MFG</span>
+                        <span class="text-xs font-mono text-slate-500">Precision Industrial</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4 group-hover:text-cyan-400 transition-colors">Precision Weight Control System</h3>
+                    <div class="space-y-3 text-sm text-slate-300">
+                        <p><strong class="text-white">Problem:</strong> Sensor drift and noise in industrial packaging created inconsistent measuring results.</p>
+                        <p><strong class="text-white">What I built:</strong> Strain gauge sensor integration, digital signal filtering firmware, and DFM enclosure tooling prep.</p>
+                        <div class="p-3 rounded-lg bg-dark-bg border border-dark-border text-xs font-mono text-cyan-300">
+                            Outcome: High-precision sensor calibration & prototype ready for manufacturing.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case 3 -->
+                <div class="p-8 rounded-2xl bg-dark-card border border-dark-border hover:border-amber-500/40 transition-all group">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-xs font-mono text-amber-400">AI + SAAS</span>
+                        <span class="text-xs font-mono text-slate-500">Software Product</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4 group-hover:text-amber-400 transition-colors">AI Content Discovery Engine</h3>
+                    <div class="space-y-3 text-sm text-slate-300">
+                        <p><strong class="text-white">Problem:</strong> Founder had an ambiguous idea for automated research extraction and multi-document synthesis.</p>
+                        <p><strong class="text-white">What I built:</strong> 1-week Product Blueprint, system architecture, LLM backend pipeline, and responsive React dashboard.</p>
+                        <div class="p-3 rounded-lg bg-dark-bg border border-dark-border text-xs font-mono text-amber-300">
+                            Outcome: Validated MVP launched to initial beta testers in 3 weeks.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case 4 -->
+                <div class="p-8 rounded-2xl bg-dark-card border border-dark-border hover:border-purple-500/40 transition-all group">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-xs font-mono text-purple-400">IOT ECOSYSTEM</span>
+                        <span class="text-xs font-mono text-slate-500">End-to-End</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4 group-hover:text-purple-400 transition-colors">Smart Telemetry & Monitoring</h3>
+                    <div class="space-y-3 text-sm text-slate-300">
+                        <p><strong class="text-white">Problem:</strong> Field sensors frequently lost connectivity in remote areas, causing data loss.</p>
+                        <p><strong class="text-white">What I built:</strong> Low-power deep sleep firmware logic, cellular modem fallback queue, and centralized cloud dashboard.</p>
+                        <div class="p-3 rounded-lg bg-dark-bg border border-dark-border text-xs font-mono text-purple-300">
+                            Outcome: Extended field battery lifecycle & reliable offline sync protocol.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="how-it-works" class="py-24 border-t border-dark-border/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-mono text-emerald-400 uppercase tracking-widest block mb-2">// Straightforward Process</span>
+                <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight mb-4">
+                    A Simple 5-Step Execution
+                </h2>
+                <p class="text-slate-400 text-sm sm:text-base font-mono">
+                    Direct access to the person making the product decisions.
+                </p>
+            </div>
+
+            <!-- Steps Line -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-12">
+                <!-- Step 1 -->
+                <div class="p-6 rounded-xl bg-dark-card border border-dark-border relative">
+                    <span class="text-xs font-mono text-emerald-400 block mb-2">01</span>
+                    <h4 class="text-lg font-bold text-white mb-2">Discovery</h4>
+                    <p class="text-xs text-slate-400 leading-relaxed">Understand the core problem, founder vision, and constraints.</p>
+                </div>
+                <!-- Step 2 -->
+                <div class="p-6 rounded-xl bg-dark-card border border-dark-border relative">
+                    <span class="text-xs font-mono text-emerald-400 block mb-2">02</span>
+                    <h4 class="text-lg font-bold text-white mb-2">Challenge</h4>
+                    <p class="text-xs text-slate-400 leading-relaxed">Research the market and try to rigorously break the idea.</p>
+                </div>
+                <!-- Step 3 -->
+                <div class="p-6 rounded-xl bg-dark-card border border-dark-border relative">
+                    <span class="text-xs font-mono text-emerald-400 block mb-2">03</span>
+                    <h4 class="text-lg font-bold text-white mb-2">Architecture</h4>
+                    <p class="text-xs text-slate-400 leading-relaxed">Define the smallest buildable product specification (PRD/BOM).</p>
+                </div>
+                <!-- Step 4 -->
+                <div class="p-6 rounded-xl bg-dark-card border border-dark-border relative">
+                    <span class="text-xs font-mono text-emerald-400 block mb-2">04</span>
+                    <h4 class="text-lg font-bold text-white mb-2">Build</h4>
+                    <p class="text-xs text-slate-400 leading-relaxed">Software, hardware engineering & firmware implementation.</p>
+                </div>
+                <!-- Step 5 -->
+                <div class="p-6 rounded-xl bg-dark-card border border-dark-border relative">
+                    <span class="text-xs font-mono text-emerald-400 block mb-2">05</span>
+                    <h4 class="text-lg font-bold text-white mb-2">Launch</h4>
+                    <p class="text-xs text-slate-400 leading-relaxed">Prototype testing, pilot validation, and factory handoff.</p>
+                </div>
+            </div>
+
+            <div class="text-center p-6 rounded-xl bg-dark-bg border border-dark-border max-w-2xl mx-auto">
+                <p class="text-sm font-medium text-slate-300">
+                    💡 <span class="text-white">You don't need to know exactly what to build.</span> That's what the first step is for.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-24 border-t border-dark-border/50 bg-dark-bg/50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="p-8 sm:p-12 rounded-3xl bg-dark-card border border-dark-border flex flex-col md:flex-row items-center gap-8">
+                <!-- Avatar / Photo Block -->
+                <div class="w-32 h-32 sm:w-40 sm:h-40 rounded-2xl bg-gradient-to-tr from-emerald-500/20 via-cyan-500/20 to-slate-800 border-2 border-emerald-500/40 flex-shrink-0 flex items-center justify-center font-mono text-3xl text-emerald-400 font-bold shadow-xl">
+                    Init
+                </div>
+
+                <!-- Text Block -->
+                <div>
+                    <span class="text-xs font-mono text-emerald-400 uppercase tracking-widest block mb-2">// Behind the Studio</span>
+                    <h3 class="text-2xl sm:text-3xl font-extrabold text-white mb-4">
+                        I'm a product builder, not just a consultant.
+                    </h3>
+                    <p class="text-sm sm:text-base text-slate-300 leading-relaxed mb-6">
+                        I've spent years building products across software, embedded systems, hardware, and manufacturing — including hands-on work with the Shenzhen hardware ecosystem. I started on the physical side of product development and gradually moved across the entire stack. Today I combine that physical & digital background with modern AI tools to help founders move from ambiguous ideas to products that can actually be built.
+                    </p>
+
+                    <!-- Tech Tags -->
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 rounded-full bg-dark-bg border border-dark-border text-xs font-mono text-emerald-400">Product Strategy</span>
+                        <span class="px-3 py-1 rounded-full bg-dark-bg border border-dark-border text-xs font-mono text-cyan-400">Hardware & PCB</span>
+                        <span class="px-3 py-1 rounded-full bg-dark-bg border border-dark-border text-xs font-mono text-amber-400">Firmware & C/C++</span>
+                        <span class="px-3 py-1 rounded-full bg-dark-bg border border-dark-border text-xs font-mono text-purple-400">Full-Stack Software</span>
+                        <span class="px-3 py-1 rounded-full bg-dark-bg border border-dark-border text-xs font-mono text-emerald-400">Manufacturing (DFM)</span>
+                        <span class="px-3 py-1 rounded-full bg-dark-bg border border-dark-border text-xs font-mono text-cyan-400">Shenzhen Sourcing</span>
+                        <span class="px-3 py-1 rounded-full bg-dark-bg border border-dark-border text-xs font-mono text-amber-400">AI Build Tools</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 border-t border-dark-border/50 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-emerald-950/20 to-transparent pointer-events-none"></div>
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight mb-6">
+                Have an idea you're not sure about?<br>
+                <span class="text-emerald-400">Don't build it yet.</span>
+            </h2>
+            <p class="text-lg text-slate-300 max-w-xl mx-auto mb-10">
+                Let's find out what's actually worth building before spending your time and money.
+            </p>
+
+            <button onclick="openDiscoveryModal('Final CTA')" class="px-10 py-5 rounded-2xl bg-emerald-400 hover:bg-emerald-300 text-black font-extrabold text-lg transition-all transform hover:-translate-y-1 shadow-2xl shadow-emerald-500/30 inline-flex items-center gap-3">
+                <span>Start a Product Discovery</span>
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </button>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-12 border-t border-dark-border bg-dark-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-3">
+                <span class="font-mono font-bold text-white text-sm">Init Studio</span>
+                <span class="text-slate-600 text-xs">|</span>
+                <span class="text-xs text-slate-400 font-mono">From idea to buildable product</span>
+            </div>
+            <div class="text-xs text-slate-500 font-mono">
+                © 2026 Init Studio. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <div id="discovery-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden flex items-center justify-center p-4">
+        <div class="bg-dark-card border border-dark-border w-full max-w-xl rounded-2xl p-6 sm:p-8 relative shadow-2xl">
+            <!-- Close Button -->
+            <button onclick="closeDiscoveryModal()" class="absolute top-5 right-5 text-slate-400 hover:text-white p-2">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+            </button>
+
+            <!-- Modal Header -->
+            <div class="mb-6">
+                <span class="text-xs font-mono text-emerald-400 uppercase tracking-wider block mb-1">Interactive Setup</span>
+                <h3 class="text-2xl font-bold text-white">Start Product Discovery</h3>
+                <p class="text-xs text-slate-400 mt-1">Tell me briefly about your concept to route the right engagement tier.</p>
+            </div>
+
+            <!-- Form -->
+            <form id="discovery-form" onsubmit="handleFormSubmit(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-mono text-slate-300 mb-2">1. What type of product is this?</label>
+                    <select id="product-type" class="w-full bg-dark-bg border border-dark-border rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-emerald-400">
+                        <option value="software">Software / SaaS / AI Platform</option>
+                        <option value="hardware">Physical Hardware / IoT Device</option>
+                        <option value="dual">Dual Hardware + Cloud System</option>
+                        <option value="unsure">Not sure yet / Raw idea</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-mono text-slate-300 mb-2">2. What stage are you in?</label>
+                    <select id="product-stage" class="w-full bg-dark-bg border border-dark-border rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-emerald-400">
+                        <option value="raw">Raw concept (Need Autopsy — $500)</option>
+                        <option value="validated">Validated idea (Need Blueprint — $2,500)</option>
+                        <option value="ready-to-build">Ready to build MVP (0→1 Dev — From $12k)</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-mono text-slate-300 mb-2">3. Describe your idea in 2-3 sentences</label>
+                    <textarea required id="product-desc" rows="3" placeholder="I want to build a product that..." class="w-full bg-dark-bg border border-dark-border rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-emerald-400 placeholder:text-slate-600"></textarea>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-mono text-slate-300 mb-2">4. Your Email</label>
+                    <input required type="email" id="user-email" placeholder="founder@company.com" class="w-full bg-dark-bg border border-dark-border rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-emerald-400 placeholder:text-slate-600">
+                </div>
+
+                <div class="pt-4">
+                    <button type="submit" class="w-full py-4 rounded-xl bg-emerald-400 hover:bg-emerald-300 text-black font-bold text-base transition-colors shadow-lg shadow-emerald-500/20">
+                        Submit Discovery Request
+                    </button>
+                </div>
+            </form>
+
+            <!-- Success Message (Hidden by default) -->
+            <div id="modal-success" class="hidden text-center py-8">
+                <div class="w-16 h-16 rounded-full bg-emerald-500/20 border border-emerald-400 text-emerald-400 flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                </div>
+                <h4 class="text-xl font-bold text-white mb-2">Discovery Request Received!</h4>
+                <p class="text-sm text-slate-300 mb-6">I will review your project details and get back to your email within 24 hours.</p>
+                <button onclick="closeDiscoveryModal()" class="px-6 py-2.5 rounded-xl bg-dark-bg border border-dark-border text-slate-300 font-mono text-xs">
+                    Close Window
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- TOAST NOTIFICATION CONTAINER -->
+    <div id="toast-container" class="fixed bottom-6 right-6 z-50 flex flex-col gap-2 pointer-events-none"></div>
+
+    <script>
+        // Interactive Pipeline Descriptions
+        const stepDescriptions = {
+            1: "Stage 01 (IDEA): Turn raw concepts and product goals into structured hypotheses.",
+            2: "Stage 02 (PROVE): Idea autopsy, market feasibility, technical checks, and risk analysis.",
+            3: "Stage 03 (ARCHITECT): Complete PRD, system topology, user flows, and technical BOM/stack.",
+            4: "Stage 04 (BUILD): Software engineering, PCB fabrication, and embedded firmware implementation.",
+            5: "Stage 05 (PRODUCE): DFM, supply chain sourcing, prototype testing, and factory scale."
+        };
+
+        function highlightStep(stepNum) {
+            for (let i = 1; i <= 5; i++) {
+                const node = document.getElementById(`step-node-${i}`);
+                if (i === stepNum) {
+                    node.classList.remove('border-dark-border');
+                    node.classList.add('border-emerald-400', 'bg-emerald-500/10');
+                } else {
+                    node.classList.remove('border-emerald-400', 'bg-emerald-500/10');
+                    node.classList.add('border-dark-border');
+                }
+            }
+            document.getElementById('pipeline-desc').innerText = stepDescriptions[stepNum];
+        }
+
+        // Architecture Section Interactive Inspector
+        const archLayerData = {
+            software: {
+                title: "Software & Cloud Layer Details",
+                desc: "Architecting cloud relays, REST/WebSocket telemetry endpoints, automated AI data processing pipelines, and responsive dashboards.",
+                color: "emerald",
+                tags: ["✓ Low Latency API", "✓ WebSockets Relay", "✓ AI Backend Spec", "✓ Mobile & Web App"]
+            },
+            hardware: {
+                title: "Hardware & Firmware Layer Details",
+                desc: "Custom PCB schematic layout, component selection for low BOM cost, C/C++ micro-controller firmware (ESP32/STM32), power optimization, and sensor calibration.",
+                color: "cyan",
+                tags: ["✓ Custom PCB Layout", "✓ ESP32/STM32 Firmware", "✓ Sensor Calibration", "✓ Low Sleep Power"]
+            },
+            business: {
+                title: "Production & COGS Layer Details",
+                desc: "Design for Manufacturing (DFM) audits, 3D enclosure tooling prep, unit economics calculation, component sourcing, and Shenzhen factory pilot run management.",
+                color: "amber",
+                tags: ["✓ DFM Enclosure Audit", "✓ Target BOM / Unit COGS", "✓ Supplier Sourcing", "✓ Factory Pilot Run"]
+            }
+        };
+
+        function selectArchLayer(layerKey) {
+            const data = archLayerData[layerKey];
+            const layers = ['software', 'hardware', 'business'];
+
+            layers.forEach(l => {
+                const node = document.getElementById(`arch-node-${l}`);
+                const isSelected = l === layerKey;
+                
+                if (isSelected) {
+                    node.className = `cursor-pointer p-5 rounded-2xl bg-[#141828]/90 border border-${data.color}-400 transition-all duration-300 shadow-lg relative overflow-hidden`;
+                } else {
+                    node.className = "cursor-pointer p-5 rounded-2xl bg-[#141828]/90 border border-slate-700/80 hover:border-slate-500 transition-all duration-300 shadow-lg relative overflow-hidden";
+                }
+            });
+
+            document.getElementById('arch-inspector-title').innerText = data.title;
+            document.getElementById('arch-inspector-desc').innerText = data.desc;
+            document.getElementById('arch-status-dot').className = `w-2 h-2 rounded-full bg-${data.color}-400 animate-pulse`;
+
+            const tagsContainer = document.getElementById('arch-inspector-tags');
+            tagsContainer.innerHTML = data.tags.map(tag => 
+                `<div class="p-2 rounded bg-slate-900 border border-slate-800 text-${data.color}-300">${tag}</div>`
+            ).join('');
+        }
+
+        function downloadSample(filename, packageType) {
+            // 1. Fire Google Analytics event if available
+            if (typeof gtag === 'function') {
+                gtag('event', 'download_sample', {
+                    'package_type': packageType,
+                    'file_name': filename
+                });
+            } else {
+                console.log(`[Analytics Event] download_sample: package_type=${packageType}, file=${filename}`);
+            }
+
+            // 2. Generate simulated downloadable file content (Markdown / Executive Overview)
+            const fileContents = generateSampleFileContent(packageType, filename);
+            const blob = new Blob([fileContents], { type: 'text/plain;charset=utf-8' });
+            const url = URL.createObjectURL(blob);
+            
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = filename.replace(/\.(zip|pdf)$/i, '.txt'); // Real readable sample text download
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            URL.revokeObjectURL(url);
+
+            // 3. Show instant feedback toast
+            showToast(`Downloading ${filename} — 0 lead capture required!`);
+        }
+
+        function generateSampleFileContent(packageType, filename) {
+            return `========================================================================
+INIT STUDIO — SAMPLE DELIVERABLE OVERVIEW
+File: ${filename}
+Package Type: ${packageType.toUpperCase()}
+Website: https://initstudio.co
+========================================================================
+
+PROJECT CASE STUDY: AI Inventory Copilot & Smart Hardware Architecture
+STATUS: Sample Deliverable Demo Pack (Unredacted Structure)
+
+------------------------------------------------------------------------
+1. EXECUTIVE SUMMARY & GO / NO-GO DECISION
+------------------------------------------------------------------------
+- Core Hypotheses Validated: 4/5
+- Target MVP Budget: $18,000 – $25,000
+- Recommended Tech Stack: React, Fast API, ESP32-S3 (for hardware), Tailwind
+- Key Risk Identified: Real-time inventory sync rate limits on platform endpoints.
+- Mitigation Strategy: Event-driven WebSockets relay with fall-back queue.
+
+------------------------------------------------------------------------
+2. DELIVERABLES INCLUDED IN THIS PACKAGE
+------------------------------------------------------------------------
+✓ Executive Summary & Strategic Roadmap
+✓ Full PRD (Product Requirements Document with User Stories)
+✓ System Topology Diagram & Cloud Relay Specs
+✓ BOM (Bill of Materials) & Unit COGS Breakdown
+✓ AI Build Pack (Cursor / Claude ready prompt instructions & schemas)
+
+------------------------------------------------------------------------
+3. READY TO GET THIS FOR YOUR PRODUCT?
+------------------------------------------------------------------------
+Book your Product Blueprint ($2,500 fixed fee, 7-14 days) or Product Autopsy ($500)
+at Init Studio. 100% of your Blueprint fee credits directly toward full development.
+
+Contact: founder@initstudio.co
+========================================================================`;
+        }
+
+        function showToast(message) {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            toast.className = 'pointer-events-auto bg-dark-card border border-emerald-500/60 text-white px-4 py-3 rounded-xl shadow-2xl font-mono text-xs flex items-center gap-3 transition-all transform translate-y-2 opacity-0';
+            toast.innerHTML = `
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shrink-0"></span>
+                <span>${message}</span>
+            `;
+            container.appendChild(toast);
+
+            setTimeout(() => {
+                toast.classList.remove('translate-y-2', 'opacity-0');
+            }, 10);
+
+            setTimeout(() => {
+                toast.classList.add('opacity-0', 'translate-y-2');
+                setTimeout(() => toast.remove(), 300);
+            }, 4000);
+        }
+
+        // Discovery Modal Controls
+        function openDiscoveryModal(preselectTier = null) {
+            const modal = document.getElementById('discovery-modal');
+            modal.classList.remove('hidden');
+            
+            if (preselectTier) {
+                const stageSelect = document.getElementById('product-stage');
+                if (preselectTier.includes('Autopsy')) stageSelect.value = 'raw';
+                else if (preselectTier.includes('Blueprint')) stageSelect.value = 'validated';
+                else if (preselectTier.includes('Dev')) stageSelect.value = 'ready-to-build';
+            }
+        }
+
+        function closeDiscoveryModal() {
+            const modal = document.getElementById('discovery-modal');
+            modal.classList.add('hidden');
+            // Reset form state
+            document.getElementById('discovery-form').classList.remove('hidden');
+            document.getElementById('modal-success').classList.add('hidden');
+        }
+
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            // Form submission UI transition
+            document.getElementById('discovery-form').classList.add('hidden');
+            document.getElementById('modal-success').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
