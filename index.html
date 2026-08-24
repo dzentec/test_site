@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Init Studio | From Idea to Buildable Product</title>
+    <title>Init Studio | Boutique Product Engineering Studio</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts -->
@@ -73,23 +73,24 @@
 </head>
 <body class="bg-[#090a0f] text-slate-200 font-sans antialiased min-h-screen grid-bg selection:bg-emerald-500 selection:text-black relative">
 
-    <!-- Interactive Technical Cursor & Ambient Grid Overlay Canvas -->
+    <!-- Interactive Technical Cursor & Motion Canvas Overlay -->
     <canvas id="tech-canvas" class="fixed inset-0 pointer-events-none z-30"></canvas>
 
+    <!-- Header Navigation -->
     <header class="sticky top-0 z-40 bg-[#090a0f]/80 backdrop-blur-md border-b border-dark-border/60 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <a href="#" class="flex items-center gap-3 group">
-                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-500/20 to-cyan-500/20 border border-emerald-500/40 flex items-center justify-center font-mono font-bold text-emerald-400 text-sm group-hover:border-emerald-400 transition-colors">
-                    Init
+            <a href="#" class="flex items-center gap-3.5 group">
+                <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-emerald-500/20 via-cyan-500/20 to-slate-800 border border-emerald-500/40 flex items-center justify-center font-mono font-bold text-emerald-400 text-xs shadow-md group-hover:border-emerald-400 transition-colors shrink-0">
+                    <span>Init</span>
                 </div>
                 <div>
-                    <span class="font-mono font-bold text-lg tracking-tight text-white block leading-none">Init Studio</span>
-                    <span class="text-[11px] text-slate-400 font-mono tracking-wider">Boutique Product Engineering Studio</span>
+                    <span class="font-mono font-bold text-base tracking-tight text-white block leading-tight">Init Studio</span>
+                    <span class="text-[11px] text-slate-400 font-mono tracking-wider block">Boutique Product Engineering Studio</span>
                 </div>
             </a>
 
             <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
-                <a href="#selected-work" class="hover:text-emerald-400 transition-colors" data-tech-keyword="SCOPES">What We Do</a>
+                <a href="#selected-work" class="hover:text-emerald-400 transition-colors" data-tech-keyword="CAPABILITIES">What We Do</a>
                 <a href="#the-difference" class="hover:text-emerald-400 transition-colors" data-tech-keyword="PHILOSOPHY">Philosophy</a>
                 <a href="#services" class="hover:text-emerald-400 transition-colors" data-tech-keyword="ENGAGEMENTS">Engagements</a>
                 <a href="#demo-library" class="hover:text-emerald-400 transition-colors flex items-center gap-1.5 text-emerald-400" data-tech-keyword="DELIVERABLES">
@@ -97,7 +98,7 @@
                     <span>Deliverables</span>
                 </a>
                 <a href="#hardware-software" class="hover:text-emerald-400 transition-colors" data-tech-keyword="SYSTEMS">Systems</a>
-                <a href="#selected-work" class="hover:text-emerald-400 transition-colors" data-tech-keyword="PROJECTS">Selected Work</a>
+                <a href="#how-it-works" class="hover:text-emerald-400 transition-colors" data-tech-keyword="PROCESS">Process</a>
             </nav>
 
             <div class="flex items-center gap-4">
@@ -109,7 +110,8 @@
         </div>
     </header>
 
-    <section class="relative pt-12 pb-20 md:pt-24 md:pb-32 overflow-hidden">
+    <!-- Hero Section -->
+    <section class="relative pt-12 pb-20 md:pt-20 md:pb-28 overflow-hidden">
         <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-emerald-500/10 blur-[120px] rounded-full pointer-events-none"></div>
         <div class="absolute top-1/3 right-10 w-[400px] h-[250px] bg-cyan-500/10 blur-[100px] rounded-full pointer-events-none"></div>
 
@@ -133,7 +135,7 @@
                     We help founders turn ambiguous ideas into buildable products — combining product strategy, system architecture, software, hardware, and production.
                 </p>
 
-                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-14">
                     <button onclick="openDiscoveryModal('Hero Call')" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-emerald-400 hover:bg-emerald-300 text-black font-bold text-base transition-all transform hover:-translate-y-0.5 shadow-xl shadow-emerald-500/20 flex items-center justify-center gap-3">
                         <span>Start Product Discovery</span>
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
@@ -146,8 +148,7 @@
             </div>
 
             <!-- Pipeline Visual -->
-            <div class="mt-8 max-w-5xl mx-auto bg-dark-card/90 border border-dark-border p-6 sm:p-8 rounded-2xl shadow-2xl backdrop-blur-sm glow-effect relative overflow-hidden">
-                
+            <div class="mt-4 max-w-5xl mx-auto bg-dark-card/90 border border-dark-border p-6 sm:p-8 rounded-2xl shadow-2xl backdrop-blur-sm glow-effect relative overflow-hidden">
                 <div class="flex items-center justify-between pb-4 mb-6 border-b border-dark-border/80 relative z-10">
                     <div class="flex items-center gap-2 text-xs font-mono text-slate-300 font-semibold">
                         <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
@@ -157,35 +158,35 @@
                 </div>
 
                 <div class="grid grid-cols-1 sm:grid-cols-5 gap-3 relative z-10">
-                    <div onclick="highlightStep(1)" id="step-node-1" data-tech-keyword="PRODUCT" class="cursor-pointer group p-4 rounded-xl bg-emerald-500/10 border border-emerald-400 shadow-[0_0_20px_rgba(16,185,129,0.15)] transition-all text-center relative overflow-hidden">
+                    <div onclick="highlightStep(1)" id="step-node-1" data-tech-keyword="PRODUCT" data-cursor-mode="product" class="cursor-pointer group p-4 rounded-xl bg-emerald-500/10 border border-emerald-400 shadow-[0_0_20px_rgba(16,185,129,0.15)] transition-all text-center relative overflow-hidden">
                         <div id="step-accent-1" class="absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-emerald-400 to-transparent shadow-[0_0_12px_#10b981]"></div>
                         <span class="text-[10px] font-mono text-emerald-400 block mb-1">STAGE 01</span>
                         <span class="font-bold text-white text-sm block">IDEA</span>
                         <span class="text-xs text-slate-300 mt-1 block">Concept & Vision</span>
                     </div>
 
-                    <div onclick="highlightStep(2)" id="step-node-2" data-tech-keyword="VALIDATE" class="cursor-pointer group p-4 rounded-xl bg-dark-bg/80 border border-dark-border/80 hover:border-slate-600 transition-all text-center relative overflow-hidden opacity-70 hover:opacity-100">
+                    <div onclick="highlightStep(2)" id="step-node-2" data-tech-keyword="VALIDATE" data-cursor-mode="product" class="cursor-pointer group p-4 rounded-xl bg-dark-bg/80 border border-dark-border/80 hover:border-slate-600 transition-all text-center relative overflow-hidden opacity-70 hover:opacity-100">
                         <div id="step-accent-2" class="hidden absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-emerald-400 to-transparent shadow-[0_0_12px_#10b981]"></div>
                         <span class="text-[10px] font-mono text-slate-500 block mb-1">STAGE 02</span>
                         <span class="font-bold text-white text-sm block">PROVE</span>
                         <span class="text-xs text-slate-400 mt-1 block">Autopsy & Risks</span>
                     </div>
 
-                    <div onclick="highlightStep(3)" id="step-node-3" data-tech-keyword="ARCHITECTURE" class="cursor-pointer group p-4 rounded-xl bg-dark-bg/80 border border-dark-border/80 hover:border-slate-600 transition-all text-center relative overflow-hidden opacity-70 hover:opacity-100">
+                    <div onclick="highlightStep(3)" id="step-node-3" data-tech-keyword="ARCHITECTURE" data-cursor-mode="software" class="cursor-pointer group p-4 rounded-xl bg-dark-bg/80 border border-dark-border/80 hover:border-slate-600 transition-all text-center relative overflow-hidden opacity-70 hover:opacity-100">
                         <div id="step-accent-3" class="hidden absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-emerald-400 to-transparent shadow-[0_0_12px_#10b981]"></div>
                         <span class="text-[10px] font-mono text-slate-500 block mb-1">STAGE 03</span>
                         <span class="font-bold text-white text-sm block">ARCHITECT</span>
                         <span class="text-xs text-slate-400 mt-1 block">PRD & Tech Spec</span>
                     </div>
 
-                    <div onclick="highlightStep(4)" id="step-node-4" data-tech-keyword="SOFTWARE" class="cursor-pointer group p-4 rounded-xl bg-dark-bg/80 border border-dark-border/80 hover:border-slate-600 transition-all text-center relative overflow-hidden opacity-70 hover:opacity-100">
+                    <div onclick="highlightStep(4)" id="step-node-4" data-tech-keyword="SOFTWARE" data-cursor-mode="hardware" class="cursor-pointer group p-4 rounded-xl bg-dark-bg/80 border border-dark-border/80 hover:border-slate-600 transition-all text-center relative overflow-hidden opacity-70 hover:opacity-100">
                         <div id="step-accent-4" class="hidden absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-emerald-400 to-transparent shadow-[0_0_12px_#10b981]"></div>
                         <span class="text-[10px] font-mono text-slate-500 block mb-1">STAGE 04</span>
                         <span class="font-bold text-white text-sm block">BUILD</span>
                         <span class="text-xs text-slate-400 mt-1 block">HW / SW / Firmware</span>
                     </div>
 
-                    <div onclick="highlightStep(5)" id="step-node-5" data-tech-keyword="PRODUCTION" class="cursor-pointer group p-4 rounded-xl bg-dark-bg/80 border border-dark-border/80 hover:border-slate-600 transition-all text-center relative overflow-hidden opacity-70 hover:opacity-100">
+                    <div onclick="highlightStep(5)" id="step-node-5" data-tech-keyword="PRODUCTION" data-cursor-mode="production" class="cursor-pointer group p-4 rounded-xl bg-dark-bg/80 border border-dark-border/80 hover:border-slate-600 transition-all text-center relative overflow-hidden opacity-70 hover:opacity-100">
                         <div id="step-accent-5" class="hidden absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-emerald-400 to-transparent shadow-[0_0_12px_#10b981]"></div>
                         <span class="text-[10px] font-mono text-slate-500 block mb-1">STAGE 05</span>
                         <span class="font-bold text-white text-sm block">PRODUCE</span>
@@ -201,7 +202,7 @@
                     <span class="text-slate-500 hidden sm:inline">Click stages to inspect architecture flow</span>
                 </div>
 
-                <!-- Hover/Active Sub-System Architecture Tree Drawer -->
+                <!-- Sub-System Topology Drawer -->
                 <div id="pipeline-sub-arch" class="hidden mt-4 pt-4 border-t border-dark-border/60 font-mono text-xs transition-all">
                     <div class="text-[11px] text-emerald-400 mb-2 font-bold flex items-center gap-2">
                         <span>└─ SYSTEM TOPOLOGY BREAKDOWN:</span>
@@ -229,22 +230,23 @@
         </div>
     </section>
 
+    <!-- Capabilities / What We Do Section -->
     <section id="selected-work" class="py-24 border-t border-dark-border/50 bg-dark-bg/40">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row md:items-end justify-between mb-16">
                 <div>
-                    <span class="text-xs font-mono text-emerald-400 uppercase tracking-widest block mb-2">// Engineering Case Studies</span>
+                    <span class="text-xs font-mono text-emerald-400 uppercase tracking-widest block mb-2">// Cross-Disciplinary Capability</span>
                     <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
-                        Selected Projects
+                        From Vague Idea to Working Product
                     </h2>
                 </div>
                 <p class="text-slate-400 text-sm max-w-sm mt-4 md:mt-0">
-                    Real-world engineering across access control, precision hardware, AI SaaS, and IoT telemetry.
+                    Product strategy, system architecture, software, hardware, and physical manufacturing under one roof.
                 </p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="p-8 rounded-2xl bg-dark-card border border-dark-border hover:border-emerald-500/40 transition-all duration-300 group flex flex-col justify-between" data-tech-keyword="DISCOVERY">
+                <div class="p-8 rounded-2xl bg-dark-card border border-dark-border hover:border-emerald-500/40 transition-all duration-300 group flex flex-col justify-between" data-tech-keyword="DISCOVERY" data-cursor-mode="product">
                     <div>
                         <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
@@ -260,7 +262,7 @@
                     </div>
                 </div>
 
-                <div class="p-8 rounded-2xl bg-dark-card border border-dark-border hover:border-cyan-500/40 transition-all duration-300 group flex flex-col justify-between" data-tech-keyword="ARCHITECTURE">
+                <div class="p-8 rounded-2xl bg-dark-card border border-dark-border hover:border-cyan-500/40 transition-all duration-300 group flex flex-col justify-between" data-tech-keyword="ARCHITECTURE" data-cursor-mode="software">
                     <div>
                         <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 4a2 2 0 114 0v1a2 2 0 01-2 2 2 2 0 01-2-2V4zm-6 8a2 2 0 114 0v1a2 2 0 01-2 2 2 2 0 01-2-2v-1zm12 0a2 2 0 114 0v1a2 2 0 01-2 2 2 2 0 01-2-2v-1zM4 18a2 2 0 114 0v1a2 2 0 01-2 2 2 2 0 01-2-2v-1z"/></svg>
@@ -276,7 +278,7 @@
                     </div>
                 </div>
 
-                <div class="p-8 rounded-2xl bg-dark-card border border-dark-border hover:border-amber-500/40 transition-all duration-300 group flex flex-col justify-between" data-tech-keyword="ENGINEERING">
+                <div class="p-8 rounded-2xl bg-dark-card border border-dark-border hover:border-amber-500/40 transition-all duration-300 group flex flex-col justify-between" data-tech-keyword="ENGINEERING" data-cursor-mode="hardware">
                     <div>
                         <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
@@ -292,7 +294,7 @@
                     </div>
                 </div>
 
-                <div class="p-8 rounded-2xl bg-dark-card border border-dark-border hover:border-purple-500/40 transition-all duration-300 group flex flex-col justify-between" data-tech-keyword="PRODUCTION">
+                <div class="p-8 rounded-2xl bg-dark-card border border-dark-border hover:border-purple-500/40 transition-all duration-300 group flex flex-col justify-between" data-tech-keyword="PRODUCTION" data-cursor-mode="production">
                     <div>
                         <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/20 text-purple-400 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5m0 0h4m-4 0V11m0 0h4m-4 0H9"/></svg>
@@ -311,10 +313,341 @@
         </div>
     </section>
 
+    <!-- Philosophy / The Difference Section -->
+    <section id="the-difference" class="py-24 border-t border-dark-border/50 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-mono text-emerald-400 uppercase tracking-widest block mb-2">// Product-First Philosophy</span>
+                <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight mb-4">
+                    Most teams start with technology.<br>
+                    <span class="text-emerald-400">We start with the product.</span>
+                </h2>
+                <p class="text-slate-400 text-base font-sans">
+                    Building without clear product architecture leads to scope bloat, bloated hardware BOMs, and rewritten codebases.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-12">
+                <!-- Typical Approach Card -->
+                <div class="p-8 rounded-2xl bg-dark-card/60 border border-slate-800 relative">
+                    <span class="text-xs font-mono text-rose-400 uppercase tracking-wider block mb-4">❌ Typical Agency / Tech-First Approach</span>
+                    <div class="space-y-3 font-mono text-sm text-slate-400">
+                        <div class="p-3 rounded bg-dark-bg/80 border border-slate-800">IDEA</div>
+                        <div class="text-center text-slate-600">↓</div>
+                        <div class="p-3 rounded bg-dark-bg/80 border border-slate-800">PICK TECH STACK FIRST</div>
+                        <div class="text-center text-slate-600">↓</div>
+                        <div class="p-3 rounded bg-dark-bg/80 border border-slate-800">BUILD BLOATED PROTOTYPE</div>
+                        <div class="text-center text-slate-600">↓</div>
+                        <div class="p-3 rounded bg-dark-bg/80 border border-rose-900/40 text-rose-300 font-bold">"HOW DO WE ACTUALLY SELL THIS?"</div>
+                    </div>
+                </div>
+
+                <!-- Init Studio Approach Card -->
+                <div class="p-8 rounded-2xl bg-dark-card border border-emerald-500/40 relative shadow-xl glow-effect">
+                    <span class="text-xs font-mono text-emerald-400 uppercase tracking-wider block mb-4">✓ Init Studio Product-First Execution</span>
+                    <div class="space-y-2 font-mono text-xs text-slate-300">
+                        <div class="p-2.5 rounded bg-emerald-950/30 border border-emerald-500/30 text-emerald-300 font-bold">PROBLEM & CUSTOMER DEFINITION</div>
+                        <div class="text-center text-emerald-500">↓</div>
+                        <div class="p-2.5 rounded bg-dark-bg border border-dark-border">PRODUCT AUTOPSY & RISK ANALYSIS</div>
+                        <div class="text-center text-emerald-500">↓</div>
+                        <div class="p-2.5 rounded bg-dark-bg border border-dark-border">PRD & SYSTEM ARCHITECTURE</div>
+                        <div class="text-center text-emerald-500">↓</div>
+                        <div class="p-2.5 rounded bg-dark-bg border border-dark-border">MINIMAL BUILDABLE MVP SCOPE</div>
+                        <div class="text-center text-emerald-500">↓</div>
+                        <div class="p-2.5 rounded bg-emerald-500/10 border border-emerald-400 text-emerald-300 font-bold">WORKING SOFTWARE & PRODUCTION HANDOFF</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Central Quote Banner -->
+            <div class="p-6 rounded-2xl bg-dark-card border border-dark-border text-center max-w-3xl mx-auto">
+                <p class="text-lg sm:text-xl font-bold text-white italic">
+                    "The goal isn't to build more. It's to find the smallest product worth building."
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services & Engagements Section -->
+    <section id="services" class="py-24 border-t border-dark-border/50 bg-dark-bg/40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-mono text-emerald-400 uppercase tracking-widest block mb-2">// Engagement Models</span>
+                <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight mb-4">
+                    Productized Engagements
+                </h2>
+                <p class="text-slate-400 text-sm sm:text-base font-sans">
+                    Clear scopes, fixed deliverables, and guaranteed timelines. No hourly billing surprises.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch mb-12">
+                <!-- Tier 01: Product Autopsy -->
+                <div class="p-8 rounded-3xl bg-dark-card border border-dark-border hover:border-emerald-500/40 transition-all flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs font-mono text-emerald-400">STAGE 01 — BEFORE YOU BUILD</span>
+                            <span class="text-[10px] font-mono bg-dark-bg text-slate-400 px-2 py-1 rounded border border-dark-border">3–5 DAYS</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-2">Product Autopsy</h3>
+                        <p class="text-xs text-slate-400 mb-6">For founders with a raw concept who need objective risk & feasibility evaluation before spending budget.</p>
+                        
+                        <div class="text-3xl font-extrabold text-white mb-6">$500 <span class="text-xs font-mono text-slate-500 font-normal">/ fixed fee</span></div>
+                        
+                        <div class="space-y-3 text-xs text-slate-300 border-t border-dark-border/80 pt-6 mb-8">
+                            <span class="font-mono text-emerald-400 font-bold block mb-2">Professional Deliverables:</span>
+                            <div class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">✓</span> <span>Market research & competitive map</span></div>
+                            <div class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">✓</span> <span>Technical feasibility & risk matrix</span></div>
+                            <div class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">✓</span> <span>Monetization & unit economics check</span></div>
+                            <div class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">✓</span> <span>BUILD / PIVOT / KILL verdict report</span></div>
+                            <div class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">✓</span> <span>60-min Founder Review call</span></div>
+                        </div>
+                    </div>
+                    <button onclick="openDiscoveryModal('Product Autopsy — $500')" class="w-full py-3.5 rounded-xl bg-dark-bg border border-dark-border hover:border-emerald-500/50 text-emerald-400 font-bold text-sm transition-colors text-center">
+                        Book Product Autopsy
+                    </button>
+                </div>
+
+                <!-- Tier 02: Product Blueprint (FLAGSHIP) -->
+                <div class="p-8 rounded-3xl bg-dark-card border-2 border-emerald-400 relative shadow-2xl glow-effect flex flex-col justify-between">
+                    <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-emerald-400 text-black font-mono font-bold text-[10px] uppercase px-3 py-1 rounded-full shadow">
+                        ★ FLAGSHIP PRODUCTIZATION
+                    </div>
+                    <div>
+                        <div class="flex items-center justify-between mb-4 pt-2">
+                            <span class="text-xs font-mono text-emerald-400">STAGE 02 — DEFINE WHAT TO BUILD</span>
+                            <span class="text-[10px] font-mono bg-emerald-500/10 text-emerald-400 px-2 py-1 rounded border border-emerald-500/30">7–14 DAYS</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-2">Product Blueprint</h3>
+                        <p class="text-xs text-slate-300 mb-6">Complete PRD, user flows, architecture diagrams, technical BOM specs, and AI build prompt package.</p>
+                        
+                        <div class="text-3xl font-extrabold text-white mb-1">$2,500 <span class="text-xs font-mono text-slate-500 font-normal">/ fixed fee</span></div>
+                        <div class="text-[11px] font-mono text-emerald-400 bg-emerald-500/10 p-2 rounded border border-emerald-500/30 mb-6">
+                            🎁 <strong>BUILD CREDIT:</strong> 100% credited toward 0→1 Dev
+                        </div>
+
+                        <div class="space-y-3 text-xs text-slate-300 border-t border-dark-border/80 pt-6 mb-8">
+                            <span class="font-mono text-emerald-400 font-bold block mb-2">Complete Blueprint Pack:</span>
+                            <div class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">✓</span> <span>Product strategy & MVP scope boundary</span></div>
+                            <div class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">✓</span> <span>User flow diagrams & wireframe spec</span></div>
+                            <div class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">✓</span> <span>PRD + API / System architecture spec</span></div>
+                            <div class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">✓</span> <span>Hardware BOM & PCB feasibility (if physical)</span></div>
+                            <div class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">✓</span> <span><strong>AI Build Pack</strong> (Claude/Cursor ready prompts)</span></div>
+                            <div class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">✓</span> <span>60-min Founder Architecture Handoff</span></div>
+                        </div>
+                    </div>
+                    <button onclick="openDiscoveryModal('Product Blueprint — $2,500')" class="w-full py-4 rounded-xl bg-emerald-400 hover:bg-emerald-300 text-black font-extrabold text-sm transition-all shadow-lg shadow-emerald-500/20 text-center">
+                        Get Product Blueprint
+                    </button>
+                </div>
+
+                <!-- Tier 03: 0->1 Product Development -->
+                <div class="p-8 rounded-3xl bg-dark-card border border-dark-border hover:border-cyan-500/40 transition-all flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs font-mono text-cyan-400">STAGE 03 — FULL BUILD & LAUNCH</span>
+                            <span class="text-[10px] font-mono bg-dark-bg text-slate-400 px-2 py-1 rounded border border-dark-border">CUSTOM SPRINT</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-2">0→1 Product Dev</h3>
+                        <p class="text-xs text-slate-400 mb-6">Turn blueprint specifications into a working product across software, hardware, firmware, and production handoff.</p>
+                        
+                        <div class="text-3xl font-extrabold text-white mb-2">From $12,000</div>
+                        <p class="text-[11px] font-mono text-slate-400 mb-6">Fixed price defined after Product Blueprint</p>
+
+                        <div class="space-y-3 text-xs text-slate-300 border-t border-dark-border/80 pt-6 mb-8">
+                            <span class="font-mono text-cyan-400 font-bold block mb-2">Full-Stack Execution:</span>
+                            <div class="flex items-start gap-2"><span class="text-cyan-400 mt-0.5">✓</span> <span>Web app, API endpoints & AI backend</span></div>
+                            <div class="flex items-start gap-2"><span class="text-cyan-400 mt-0.5">✓</span> <span>Custom PCB layout & firmware implementation</span></div>
+                            <div class="flex items-start gap-2"><span class="text-cyan-400 mt-0.5">✓</span> <span>Working hardware prototype fabrication</span></div>
+                            <div class="flex items-start gap-2"><span class="text-cyan-400 mt-0.5">✓</span> <span>DFM tooling prep & factory supply chain setup</span></div>
+                        </div>
+                    </div>
+                    <button onclick="openDiscoveryModal('0->1 Dev — From $12k')" class="w-full py-3.5 rounded-xl bg-dark-bg border border-dark-border hover:border-cyan-500/50 text-cyan-400 font-bold text-sm transition-colors text-center">
+                        Discuss 0→1 Dev Scope
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Library Section (SEE EXACTLY WHAT YOU GET) -->
+    <section id="demo-library" class="py-24 border-t border-dark-border/50 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-mono mb-4">
+                    <span>🔍 SEE EXACTLY WHAT YOU GET</span>
+                </div>
+                <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight mb-4">
+                    Don't take our word for it.
+                </h2>
+                <p class="text-slate-300 text-base font-sans">
+                    Download real examples of what you'll receive for your product idea.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                <!-- Sample 01: Product Autopsy -->
+                <div class="p-8 rounded-2xl bg-dark-card border border-dark-border hover:border-emerald-500/40 transition-all flex flex-col justify-between">
+                    <div>
+                        <span class="text-[10px] font-mono text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded border border-emerald-500/20 block w-max mb-3">FULL DEMO CASE STUDY</span>
+                        <h3 class="text-xl font-bold text-white mb-1">PRODUCT AUTOPSY</h3>
+                        <p class="text-xs font-mono text-slate-400 mb-6">"AI Inventory Copilot for Shopify"</p>
+                        
+                        <ul class="space-y-2.5 text-xs text-slate-300 border-t border-dark-border/80 pt-4 mb-8">
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>18-page Go/No-Go decision report</li>
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>Market signals & competitor matrix</li>
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>MVP scope & validation plan</li>
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>"What NOT to build" section</li>
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>Next 5 concrete execution steps</li>
+                        </ul>
+                    </div>
+
+                    <button onclick="downloadSample('INIT-Studio-Product-Autopsy-Sample.pdf', 'product_autopsy')" class="w-full py-3 rounded-xl bg-dark-bg border border-dark-border hover:border-emerald-500/60 text-emerald-400 font-mono text-xs flex items-center justify-center gap-2 transition-colors">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                        <span>↓ Download Sample (TXT/PDF 2.4 MB)</span>
+                    </button>
+                </div>
+
+                <!-- Sample 02: Product Blueprint (Highlighted) -->
+                <div class="p-8 rounded-2xl bg-dark-card border-2 border-emerald-400 shadow-xl glow-effect flex flex-col justify-between relative">
+                    <span class="absolute -top-3 left-6 bg-emerald-400 text-black font-mono font-bold text-[9px] uppercase px-2.5 py-0.5 rounded">FULL PACKAGE</span>
+                    <div>
+                        <span class="text-[10px] font-mono text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded border border-emerald-500/20 block w-max mb-3">FULL DEMO CASE STUDY</span>
+                        <h3 class="text-xl font-bold text-white mb-1">PRODUCT BLUEPRINT</h3>
+                        <p class="text-xs font-mono text-slate-400 mb-6">"AI Inventory Copilot for Shopify"</p>
+                        
+                        <ul class="space-y-2.5 text-xs text-slate-300 border-t border-dark-border/80 pt-4 mb-8">
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>12 separate PDFs in package</li>
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>Executive Summary ($18-25k budget spec)</li>
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>Full PRD with complete user stories</li>
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>System Architecture & API specs</li>
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span><strong>AI Build Pack</strong> (Claude/Cursor ready)</li>
+                        </ul>
+                    </div>
+
+                    <button onclick="downloadSample('INIT-Studio-Product-Blueprint-Sample.zip', 'product_blueprint')" class="w-full py-3.5 rounded-xl bg-emerald-400 hover:bg-emerald-300 text-black font-bold font-mono text-xs flex items-center justify-center gap-2 transition-all shadow-lg shadow-emerald-500/20">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                        <span>↓ Download Full Package (TXT/ZIP 8.1 MB)</span>
+                    </button>
+                </div>
+
+                <!-- Sample 03: Hardware Feasibility -->
+                <div class="p-8 rounded-2xl bg-dark-card border border-dark-border hover:border-cyan-500/40 transition-all flex flex-col justify-between">
+                    <div>
+                        <span class="text-[10px] font-mono text-cyan-400 bg-cyan-500/10 px-2.5 py-1 rounded border border-cyan-500/20 block w-max mb-3">FULL DEMO CASE STUDY</span>
+                        <h3 class="text-xl font-bold text-white mb-1">HARDWARE FEASIBILITY</h3>
+                        <p class="text-xs font-mono text-slate-400 mb-6">"Smart Industrial IoT Sensor"</p>
+                        
+                        <ul class="space-y-2.5 text-xs text-slate-300 border-t border-dark-border/80 pt-4 mb-8">
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>13 docs + Excel BOM sheets</li>
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>Preliminary BOM with unit costs</li>
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>Hardware & Firmware deep-sleep loop</li>
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>Prototype tooling & manufacturing plan</li>
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>DFM analysis & top 5 hardware risks</li>
+                        </ul>
+                    </div>
+
+                    <button onclick="downloadSample('INIT-Studio-Hardware-Feasibility-Sample.zip', 'hardware_feasibility')" class="w-full py-3 rounded-xl bg-dark-bg border border-dark-border hover:border-cyan-500/60 text-cyan-400 font-mono text-xs flex items-center justify-center gap-2 transition-colors">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                        <span>↓ Download Sample (TXT/ZIP 6.3 MB)</span>
+                    </button>
+                </div>
+            </div>
+
+            <p class="text-center text-xs font-mono text-slate-500 mb-12">
+                No email required. No lead capture. Just real engineering work.
+            </p>
+
+            <!-- Bridge CTA Banner -->
+            <div class="max-w-3xl mx-auto p-8 rounded-2xl bg-gradient-to-r from-emerald-950/40 via-dark-card to-cyan-950/40 border border-emerald-500/40 text-center shadow-2xl">
+                <h3 class="text-2xl font-bold text-white mb-2">Want this for your product?</h3>
+                <p class="text-sm text-slate-300 max-w-xl mx-auto mb-6">
+                    This is exactly what you'll receive for your idea during a Product Blueprint engagement.
+                </p>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <button onclick="openDiscoveryModal('Product Blueprint — $2,500')" class="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-emerald-400 hover:bg-emerald-300 text-black font-extrabold text-sm transition-all shadow-lg shadow-emerald-500/20">
+                        Get My Blueprint ($2,500) →
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cross-System Engineering (Software x Hardware) Section -->
+    <section id="hardware-software" class="py-24 border-t border-dark-border/50 relative overflow-hidden bg-dark-bg/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-mono text-emerald-400 uppercase tracking-widest block mb-2">// Cross-System Engineering</span>
+                <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight mb-4">
+                    Software is easy to prototype.<br>
+                    <span class="text-emerald-400">Products are not.</span>
+                </h2>
+                <p class="text-slate-300 text-base max-w-2xl mx-auto font-sans">
+                    A software decision can change the BOM. A hardware decision can change the cloud architecture. Production constraints can change the product itself.
+                </p>
+            </div>
+
+            <!-- Closed Loop System Topology Visual -->
+            <div class="max-w-4xl mx-auto p-8 rounded-3xl bg-dark-card border border-dark-border shadow-2xl relative" data-cursor-mode="hardware">
+                <div class="flex items-center justify-between pb-4 mb-8 border-b border-dark-border/80 text-xs font-mono text-slate-400">
+                    <span class="text-emerald-400 font-bold flex items-center gap-2">
+                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                        CLOSED-LOOP SYSTEM FEEDBACK
+                    </span>
+                    <span>Products Are Interconnected Systems</span>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 relative z-10">
+                    <div class="p-6 rounded-2xl bg-dark-bg border border-emerald-500/40 relative group hover:border-emerald-400 transition-colors" data-cursor-mode="software">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="text-xs font-mono text-emerald-400 font-bold">SOFTWARE & CLOUD</span>
+                            <span class="text-[10px] font-mono text-slate-500">LAYER 01</span>
+                        </div>
+                        <p class="text-xs text-slate-300 leading-relaxed mb-4">API throughput, mobile apps, real-time WebSocket relays, AI data processing.</p>
+                        <div class="text-[11px] font-mono text-emerald-300 bg-emerald-500/10 p-2 rounded border border-emerald-500/20">
+                            ⚡ "A software decision changes the BOM cost"
+                        </div>
+                    </div>
+
+                    <div class="p-6 rounded-2xl bg-dark-bg border border-cyan-500/40 relative group hover:border-cyan-400 transition-colors" data-cursor-mode="hardware">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="text-xs font-mono text-cyan-400 font-bold">HARDWARE & FIRMWARE</span>
+                            <span class="text-[10px] font-mono text-slate-500">LAYER 02</span>
+                        </div>
+                        <p class="text-xs text-slate-300 leading-relaxed mb-4">MCU logic, PCB schematics, low-sleep power loops, sensor calibration.</p>
+                        <div class="text-[11px] font-mono text-cyan-300 bg-cyan-500/10 p-2 rounded border border-cyan-500/20">
+                            📡 "A hardware decision changes cloud architecture"
+                        </div>
+                    </div>
+
+                    <div class="p-6 rounded-2xl bg-dark-bg border border-purple-500/40 relative group hover:border-purple-400 transition-colors" data-cursor-mode="production">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="text-xs font-mono text-purple-400 font-bold">PRODUCTION & COGS</span>
+                            <span class="text-[10px] font-mono text-slate-500">LAYER 03</span>
+                        </div>
+                        <p class="text-xs text-slate-300 leading-relaxed mb-4">DFM enclosure tooling, unit target economics, factory supply chain.</p>
+                        <div class="text-[11px] font-mono text-purple-300 bg-purple-500/10 p-2 rounded border border-purple-500/20">
+                            🏭 "Production constraints change the product itself"
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-8 pt-6 border-t border-dark-border/60 flex items-center justify-between font-mono text-xs text-slate-400">
+                    <span class="flex items-center gap-2">
+                        <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping"></span>
+                        Active System Loop Sync:
+                    </span>
+                    <span class="text-emerald-400">SOFTWARE ⇄ HARDWARE ⇄ PRODUCTION</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works & Studio Model Section -->
     <section id="how-it-works" class="py-24 border-t border-dark-border/50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16">
-                <span class="text-xs font-mono text-emerald-400 uppercase tracking-widest block mb-2">// Straightforward Process</span>
+                <span class="text-xs font-mono text-emerald-400 uppercase tracking-widest block mb-2">// Process</span>
                 <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight mb-4">
                     A Simple 5-Step Execution
                 </h2>
@@ -351,7 +684,7 @@
                 </div>
             </div>
 
-            <!-- Studio Structure Banner -->
+            <!-- Studio Structure Banner (Small By Design) -->
             <div class="p-8 rounded-2xl bg-gradient-to-r from-emerald-950/30 via-dark-card to-cyan-950/30 border border-emerald-500/30 text-center max-w-3xl mx-auto">
                 <span class="text-[10px] font-mono text-emerald-400 uppercase tracking-widest block mb-2">// Studio Structure</span>
                 <h3 class="text-2xl font-bold text-white mb-2">Small by design</h3>
@@ -367,11 +700,12 @@
         </div>
     </section>
 
+    <!-- About Section -->
     <section id="about" class="py-24 border-t border-dark-border/50 bg-dark-bg/50">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="p-8 sm:p-12 rounded-3xl bg-dark-card border border-dark-border flex flex-col md:flex-row items-center gap-8">
                 <div class="w-32 h-32 sm:w-40 sm:h-40 rounded-2xl bg-gradient-to-tr from-emerald-500/20 via-cyan-500/20 to-slate-800 border-2 border-emerald-500/40 flex-shrink-0 flex items-center justify-center font-mono text-3xl text-emerald-400 font-bold shadow-xl">
-                    Init
+                    <span>Init</span>
                 </div>
 
                 <div>
@@ -397,6 +731,7 @@
         </div>
     </section>
 
+    <!-- Final CTA Section -->
     <section class="py-24 border-t border-dark-border/50 relative overflow-hidden">
         <div class="absolute inset-0 bg-gradient-to-b from-transparent via-emerald-950/20 to-transparent pointer-events-none"></div>
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
@@ -415,6 +750,7 @@
         </div>
     </section>
 
+    <!-- Footer -->
     <footer class="py-12 border-t border-dark-border bg-dark-bg">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
             <div class="flex items-center gap-3">
@@ -428,6 +764,7 @@
         </div>
     </footer>
 
+    <!-- Product Discovery Form Modal -->
     <div id="discovery-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden flex items-center justify-center p-4">
         <div class="bg-dark-card border border-dark-border w-full max-w-xl rounded-2xl p-6 sm:p-8 relative shadow-2xl">
             <button onclick="closeDiscoveryModal()" class="absolute top-5 right-5 text-slate-400 hover:text-white p-2">
@@ -490,9 +827,12 @@
         </div>
     </div>
 
+    <!-- Toast Notification Container -->
     <div id="toast-container" class="fixed bottom-6 right-6 z-50 flex flex-col gap-2 pointer-events-none"></div>
 
+    <!-- Client-Side JavaScript Logic -->
     <script>
+        // Pipeline Stage Descriptions
         const stepDescriptions = {
             1: "Stage 01 (IDEA): Turn raw concepts and product goals into structured hypotheses.",
             2: "Stage 02 (PROVE): Idea autopsy, market feasibility, technical checks, and risk analysis.",
@@ -543,7 +883,6 @@
             document.getElementById('pipeline-desc').innerText = stepDescriptions[stepNum];
             document.getElementById('pipeline-active-tag').innerText = `Active Trace: Stage 0${stepNum}`;
 
-            // Expand sub-system breakdown on Stage 03 (ARCHITECT) or Stage 04 (BUILD)
             const subArch = document.getElementById('pipeline-sub-arch');
             if (subArch) {
                 if (stepNum === 3 || stepNum === 4) {
@@ -554,15 +893,14 @@
             }
         }
 
-        // Auto-cycle through pipeline stages slowly if user doesn't click
         function startPipelineAutoSignal() {
             autoStageInterval = setInterval(() => {
                 currentAutoStage = (currentAutoStage % 5) + 1;
                 highlightStep(currentAutoStage, false);
-            }, 4000);
+            }, 3500);
         }
 
-        // Initialize Technical Canvas Motion (Cursor Trace + Micro Grid)
+        // Technical Canvas Motion
         function initEngineeringMotion() {
             const canvas = document.getElementById('tech-canvas');
             if (!canvas) return;
@@ -576,17 +914,16 @@
                 height = canvas.height = window.innerHeight;
             });
 
-            // Cursor history for technical trace
             const trail = [];
-            const maxTrailLength = 12;
+            const maxTrailLength = 14;
             let mouseX = -100;
             let mouseY = -100;
             let activePulseTarget = null;
             let currentPulseTarget = null;
             let pulseOpacity = 0;
             let pulsePhase = 0;
+            let activeCursorMode = 'product';
 
-            // Track mouse movements
             window.addEventListener('mousemove', (e) => {
                 mouseX = e.clientX;
                 mouseY = e.clientY;
@@ -595,14 +932,14 @@
                     x: mouseX,
                     y: mouseY,
                     time: Date.now(),
-                    size: Math.random() * 2 + 1.5
+                    size: Math.random() * 2 + 1.5,
+                    mode: activeCursorMode
                 });
 
                 if (trail.length > maxTrailLength) {
                     trail.pop();
                 }
 
-                // Check proximity to tech keywords
                 let foundTarget = null;
                 const techNodes = document.querySelectorAll('[data-tech-keyword]');
                 techNodes.forEach(node => {
@@ -620,27 +957,17 @@
                             height: rect.height,
                             label: node.getAttribute('data-tech-keyword')
                         };
+                        const mode = node.getAttribute('data-cursor-mode');
+                        if (mode) activeCursorMode = mode;
                     }
                 });
                 activePulseTarget = foundTarget;
             });
 
-            // Ambient background scan line variable
-            let scanY = 0;
-
             function draw() {
                 ctx.clearRect(0, 0, width, height);
 
-                // 1. Subtle Horizontal Scan Line
-                scanY = (scanY + 0.75) % height;
-                ctx.beginPath();
-                ctx.strokeStyle = 'rgba(16, 185, 129, 0.03)';
-                ctx.lineWidth = 1;
-                ctx.moveTo(0, scanY);
-                ctx.lineTo(width, scanY);
-                ctx.stroke();
-
-                // 2. Localized Tech Pulse on Hovered Keyword (Stays visible while hovering)
+                // Pulse target on hover keyword
                 if (activePulseTarget) {
                     currentPulseTarget = activePulseTarget;
                     pulseOpacity = Math.min(1, pulseOpacity + 0.1);
@@ -663,7 +990,6 @@
                         currentPulseTarget.height + expand * 2
                     );
 
-                    // Technical Label Tag
                     ctx.font = '10px JetBrains Mono, monospace';
                     ctx.fillStyle = `rgba(16, 185, 129, ${pulseOpacity * 0.9})`;
                     ctx.fillText(
@@ -674,40 +1000,62 @@
                     ctx.restore();
                 }
 
-                // 3. Technical Cursor Trace Network
+                // Layer 3: Context-Adaptive Cursor Trail
                 if (trail.length > 1) {
-                    // Draw connecting line trace
                     ctx.beginPath();
                     ctx.moveTo(trail[0].x, trail[0].y);
-                    for (let i = 1; i < trail.length; i++) {
-                        ctx.lineTo(trail[i].x, trail[i].y);
+
+                    if (activeCursorMode === 'hardware') {
+                        for (let i = 1; i < trail.length; i++) {
+                            ctx.lineTo(trail[i-1].x, trail[i].y);
+                            ctx.lineTo(trail[i].x, trail[i].y);
+                        }
+                        ctx.strokeStyle = 'rgba(6, 182, 212, 0.25)';
+                    } else if (activeCursorMode === 'software') {
+                        for (let i = 1; i < trail.length; i++) {
+                            const xc = (trail[i].x + trail[i - 1].x) / 2;
+                            const yc = (trail[i].y + trail[i - 1].y) / 2;
+                            ctx.quadraticCurveTo(trail[i - 1].x, trail[i - 1].y, xc, yc);
+                        }
+                        ctx.strokeStyle = 'rgba(16, 185, 129, 0.25)';
+                    } else {
+                        for (let i = 1; i < trail.length; i++) {
+                            ctx.lineTo(trail[i].x, trail[i].y);
+                        }
+                        ctx.strokeStyle = 'rgba(16, 185, 129, 0.18)';
                     }
-                    ctx.strokeStyle = 'rgba(16, 185, 129, 0.18)';
+
                     ctx.lineWidth = 1;
                     ctx.stroke();
 
-                    // Draw individual particle nodes along the trace
                     for (let i = 0; i < trail.length; i++) {
                         const point = trail[i];
                         const age = Date.now() - point.time;
-                        const life = Math.max(0, 1 - age / 500); // 500ms fadeout
+                        const life = Math.max(0, 1 - age / 500);
 
                         if (life <= 0) continue;
 
-                        ctx.beginPath();
-                        ctx.arc(point.x, point.y, point.size * life, 0, Math.PI * 2);
-                        ctx.fillStyle = i === 0 
-                            ? 'rgba(52, 211, 153, 0.8)' 
-                            : `rgba(16, 185, 129, ${life * 0.35})`;
-                        ctx.fill();
-
-                        // Occasional crosshair / network dot link
-                        if (i % 3 === 0 && i > 0) {
-                            ctx.strokeStyle = `rgba(6, 182, 212, ${life * 0.25})`;
+                        ctx.save();
+                        if (activeCursorMode === 'software' && i % 3 === 0) {
+                            ctx.font = '9px JetBrains Mono, monospace';
+                            ctx.fillStyle = `rgba(16, 185, 129, ${life * 0.7})`;
+                            ctx.fillText(i % 2 === 0 ? '01' : 'ACK', point.x + 4, point.y + 4);
+                        } else if (activeCursorMode === 'production' && i % 2 === 0) {
+                            ctx.strokeStyle = `rgba(168, 85, 247, ${life * 0.6})`;
+                            ctx.lineWidth = 1;
                             ctx.beginPath();
-                            ctx.arc(point.x, point.y, (point.size + 3) * life, 0, Math.PI * 2);
+                            ctx.moveTo(point.x - 3, point.y); ctx.lineTo(point.x + 3, point.y);
+                            ctx.moveTo(point.x, point.y - 3); ctx.lineTo(point.x, point.y + 3);
                             ctx.stroke();
+                        } else {
+                            ctx.beginPath();
+                            ctx.arc(point.x, point.y, point.size * life, 0, Math.PI * 2);
+                            ctx.fillStyle = i === 0 
+                                ? 'rgba(52, 211, 153, 0.8)' 
+                                : `rgba(16, 185, 129, ${life * 0.35})`;
+                            ctx.fill();
                         }
+                        ctx.restore();
                     }
                 }
 
@@ -717,57 +1065,12 @@
             draw();
         }
 
-        // Initialize motion and timers on window load
         window.addEventListener('load', () => {
             initEngineeringMotion();
             startPipelineAutoSignal();
         });
 
-        const archLayerData = {
-            software: {
-                title: "Software & Cloud Layer Details",
-                desc: "Architecting cloud relays, REST/WebSocket telemetry endpoints, automated AI data pipelines, and responsive web apps.",
-                color: "emerald",
-                tags: ["✓ Low Latency API", "✓ WebSockets Relay", "✓ AI Backend Spec", "✓ Mobile & Web App"]
-            },
-            hardware: {
-                title: "Hardware & Firmware Layer Details",
-                desc: "Custom PCB schematic layout, component selection for low BOM cost, C/C++ micro-controller firmware (ESP32/STM32), power optimization, and sensor calibration.",
-                color: "cyan",
-                tags: ["✓ Custom PCB Layout", "✓ ESP32/STM32 Firmware", "✓ Sensor Calibration", "✓ Low Sleep Power"]
-            },
-            business: {
-                title: "Production & COGS Layer Details",
-                desc: "Design for Manufacturing (DFM) audits, 3D enclosure tooling prep, unit economics calculation, component sourcing, and factory pilot run management.",
-                color: "amber",
-                tags: ["✓ DFM Enclosure Audit", "✓ Target BOM / Unit COGS", "✓ Supplier Sourcing", "✓ Factory Pilot Run"]
-            }
-        };
-
-        function selectArchLayer(layerKey) {
-            const data = archLayerData[layerKey];
-            const layers = ['software', 'hardware', 'business'];
-
-            layers.forEach(l => {
-                const node = document.getElementById(`arch-node-${l}`);
-                const isSelected = l === layerKey;
-                if (isSelected) {
-                    node.className = `cursor-pointer p-5 rounded-2xl bg-[#141828]/90 border border-${data.color}-400 transition-all duration-300 shadow-lg relative overflow-hidden`;
-                } else {
-                    node.className = "cursor-pointer p-5 rounded-2xl bg-[#141828]/90 border border-slate-700/80 hover:border-slate-500 transition-all duration-300 shadow-lg relative overflow-hidden";
-                }
-            });
-
-            document.getElementById('arch-inspector-title').innerText = data.title;
-            document.getElementById('arch-inspector-desc').innerText = data.desc;
-            document.getElementById('arch-status-dot').className = `w-2 h-2 rounded-full bg-${data.color}-400 animate-pulse`;
-
-            const tagsContainer = document.getElementById('arch-inspector-tags');
-            tagsContainer.innerHTML = data.tags.map(tag => 
-                `<div class="p-2 rounded bg-slate-900 border border-slate-800 text-${data.color}-300">${tag}</div>`
-            ).join('');
-        }
-
+        // Demo Library Download Generator
         function downloadSample(filename, packageType) {
             if (typeof gtag === 'function') {
                 gtag('event', 'download_sample', {
