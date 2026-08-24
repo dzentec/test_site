@@ -89,7 +89,7 @@
             </a>
 
             <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
-                <a href="#what-i-do" class="hover:text-emerald-400 transition-colors" data-tech-keyword="SCOPES">What I Do</a>
+                <a href="#selected-work" class="hover:text-emerald-400 transition-colors" data-tech-keyword="SCOPES">What We Do</a>
                 <a href="#the-difference" class="hover:text-emerald-400 transition-colors" data-tech-keyword="PHILOSOPHY">Philosophy</a>
                 <a href="#services" class="hover:text-emerald-400 transition-colors" data-tech-keyword="ENGAGEMENTS">Engagements</a>
                 <a href="#demo-library" class="hover:text-emerald-400 transition-colors flex items-center gap-1.5 text-emerald-400" data-tech-keyword="DELIVERABLES">
@@ -130,7 +130,7 @@
                 </h1>
 
                 <p class="text-lg sm:text-xl text-slate-300 max-w-2xl mx-auto font-normal leading-relaxed mb-10">
-                    I help founders turn ambiguous ideas into buildable products — combining product strategy, system architecture, software, hardware, and production.
+                    We help founders turn ambiguous ideas into buildable products — combining product strategy, system architecture, software, hardware, and production.
                 </p>
 
                 <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
@@ -148,11 +148,6 @@
             <!-- Pipeline Visual -->
             <div class="mt-8 max-w-5xl mx-auto bg-dark-card/90 border border-dark-border p-6 sm:p-8 rounded-2xl shadow-2xl backdrop-blur-sm glow-effect relative overflow-hidden">
                 
-                <!-- Animated Active Signal Track Line -->
-                <div class="hidden sm:block absolute top-[108px] left-[10%] right-[10%] h-[2px] bg-emerald-500/10 z-0">
-                    <div id="pipeline-signal-pulse" class="absolute top-0 h-full w-24 bg-gradient-to-r from-transparent via-emerald-400 to-transparent shadow-[0_0_12px_#10b981] transition-all duration-700 ease-in-out"></div>
-                </div>
-
                 <div class="flex items-center justify-between pb-4 mb-6 border-b border-dark-border/80 relative z-10">
                     <div class="flex items-center gap-2 text-xs font-mono text-slate-300 font-semibold">
                         <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
@@ -162,31 +157,36 @@
                 </div>
 
                 <div class="grid grid-cols-1 sm:grid-cols-5 gap-3 relative z-10">
-                    <div onclick="highlightStep(1)" id="step-node-1" data-tech-keyword="PRODUCT" class="cursor-pointer group p-4 rounded-xl bg-dark-bg border border-emerald-500/50 hover:border-emerald-400 transition-all text-center relative">
+                    <div onclick="highlightStep(1)" id="step-node-1" data-tech-keyword="PRODUCT" class="cursor-pointer group p-4 rounded-xl bg-emerald-500/10 border border-emerald-400 shadow-[0_0_20px_rgba(16,185,129,0.15)] transition-all text-center relative overflow-hidden">
+                        <div id="step-accent-1" class="absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-emerald-400 to-transparent shadow-[0_0_12px_#10b981]"></div>
                         <span class="text-[10px] font-mono text-emerald-400 block mb-1">STAGE 01</span>
                         <span class="font-bold text-white text-sm block">IDEA</span>
-                        <span class="text-xs text-slate-400 mt-1 block">Concept & Vision</span>
+                        <span class="text-xs text-slate-300 mt-1 block">Concept & Vision</span>
                     </div>
 
-                    <div onclick="highlightStep(2)" id="step-node-2" data-tech-keyword="VALIDATE" class="cursor-pointer group p-4 rounded-xl bg-dark-bg border border-dark-border hover:border-emerald-400 transition-all text-center relative">
+                    <div onclick="highlightStep(2)" id="step-node-2" data-tech-keyword="VALIDATE" class="cursor-pointer group p-4 rounded-xl bg-dark-bg/80 border border-dark-border/80 hover:border-slate-600 transition-all text-center relative overflow-hidden opacity-70 hover:opacity-100">
+                        <div id="step-accent-2" class="hidden absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-emerald-400 to-transparent shadow-[0_0_12px_#10b981]"></div>
                         <span class="text-[10px] font-mono text-slate-500 block mb-1">STAGE 02</span>
                         <span class="font-bold text-white text-sm block">PROVE</span>
                         <span class="text-xs text-slate-400 mt-1 block">Autopsy & Risks</span>
                     </div>
 
-                    <div onclick="highlightStep(3)" id="step-node-3" data-tech-keyword="ARCHITECTURE" class="cursor-pointer group p-4 rounded-xl bg-dark-bg border border-dark-border hover:border-emerald-400 transition-all text-center relative">
+                    <div onclick="highlightStep(3)" id="step-node-3" data-tech-keyword="ARCHITECTURE" class="cursor-pointer group p-4 rounded-xl bg-dark-bg/80 border border-dark-border/80 hover:border-slate-600 transition-all text-center relative overflow-hidden opacity-70 hover:opacity-100">
+                        <div id="step-accent-3" class="hidden absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-emerald-400 to-transparent shadow-[0_0_12px_#10b981]"></div>
                         <span class="text-[10px] font-mono text-slate-500 block mb-1">STAGE 03</span>
                         <span class="font-bold text-white text-sm block">ARCHITECT</span>
                         <span class="text-xs text-slate-400 mt-1 block">PRD & Tech Spec</span>
                     </div>
 
-                    <div onclick="highlightStep(4)" id="step-node-4" data-tech-keyword="SOFTWARE" class="cursor-pointer group p-4 rounded-xl bg-dark-bg border border-dark-border hover:border-emerald-400 transition-all text-center relative">
+                    <div onclick="highlightStep(4)" id="step-node-4" data-tech-keyword="SOFTWARE" class="cursor-pointer group p-4 rounded-xl bg-dark-bg/80 border border-dark-border/80 hover:border-slate-600 transition-all text-center relative overflow-hidden opacity-70 hover:opacity-100">
+                        <div id="step-accent-4" class="hidden absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-emerald-400 to-transparent shadow-[0_0_12px_#10b981]"></div>
                         <span class="text-[10px] font-mono text-slate-500 block mb-1">STAGE 04</span>
                         <span class="font-bold text-white text-sm block">BUILD</span>
                         <span class="text-xs text-slate-400 mt-1 block">HW / SW / Firmware</span>
                     </div>
 
-                    <div onclick="highlightStep(5)" id="step-node-5" data-tech-keyword="PRODUCTION" class="cursor-pointer group p-4 rounded-xl bg-dark-bg border border-dark-border hover:border-emerald-400 transition-all text-center relative">
+                    <div onclick="highlightStep(5)" id="step-node-5" data-tech-keyword="PRODUCTION" class="cursor-pointer group p-4 rounded-xl bg-dark-bg/80 border border-dark-border/80 hover:border-slate-600 transition-all text-center relative overflow-hidden opacity-70 hover:opacity-100">
+                        <div id="step-accent-5" class="hidden absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-emerald-400 to-transparent shadow-[0_0_12px_#10b981]"></div>
                         <span class="text-[10px] font-mono text-slate-500 block mb-1">STAGE 05</span>
                         <span class="font-bold text-white text-sm block">PRODUCE</span>
                         <span class="text-xs text-slate-400 mt-1 block">DFM & Factory Scale</span>
@@ -377,10 +377,10 @@
                 <div>
                     <span class="text-xs font-mono text-emerald-400 uppercase tracking-widest block mb-2">// Behind the Studio</span>
                     <h3 class="text-2xl sm:text-3xl font-extrabold text-white mb-4">
-                        I'm a product builder, not just a consultant.
+                        We are product builders, not just consultants.
                     </h3>
                     <p class="text-sm sm:text-base text-slate-300 leading-relaxed mb-6">
-                        I've spent years building products across software, embedded systems, hardware, and manufacturing — including hands-on experience working with the Shenzhen hardware ecosystem. I started on the physical side of product development and gradually expanded across the entire software stack. As a product architect, I combine that cross-disciplinary background with modern AI tools to take founders from raw idea to buildable product.
+                        At Init Studio, we've spent years building products across software, embedded systems, hardware, and manufacturing — including hands-on experience working with the Shenzhen hardware ecosystem. We started on the physical side of product development and gradually expanded across the entire software stack. Combining that cross-disciplinary background with modern AI tools, we take founders from raw idea to buildable product.
                     </p>
 
                     <div class="flex flex-wrap gap-2">
@@ -437,7 +437,7 @@
             <div class="mb-6">
                 <span class="text-xs font-mono text-emerald-400 uppercase tracking-wider block mb-1">Interactive Setup</span>
                 <h3 class="text-2xl font-bold text-white">Start Product Discovery</h3>
-                <p class="text-xs text-slate-400 mt-1">Tell me briefly about your concept to route the right engagement tier.</p>
+                <p class="text-xs text-slate-400 mt-1">Tell us briefly about your concept to route the right engagement tier.</p>
             </div>
 
             <form id="discovery-form" onsubmit="handleFormSubmit(event)" class="space-y-4">
@@ -482,7 +482,7 @@
                     <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
                 </div>
                 <h4 class="text-xl font-bold text-white mb-2">Discovery Request Received!</h4>
-                <p class="text-sm text-slate-300 mb-6">I will review your project details and get back to your email within 24 hours.</p>
+                <p class="text-sm text-slate-300 mb-6">We will review your project details and get back to your email within 24 hours.</p>
                 <button onclick="closeDiscoveryModal()" class="px-6 py-2.5 rounded-xl bg-dark-bg border border-dark-border text-slate-300 font-mono text-xs">
                     Close Window
                 </button>
@@ -511,24 +511,37 @@
 
             for (let i = 1; i <= 5; i++) {
                 const node = document.getElementById(`step-node-${i}`);
+                const accent = document.getElementById(`step-accent-${i}`);
+                const stageText = node.querySelector('.font-mono');
+                const descText = node.querySelector('.text-xs');
+
                 if (i === stepNum) {
-                    node.classList.remove('border-dark-border');
-                    node.classList.add('border-emerald-400', 'bg-emerald-500/10');
+                    node.className = 'cursor-pointer group p-4 rounded-xl bg-emerald-500/10 border border-emerald-400 shadow-[0_0_20px_rgba(16,185,129,0.15)] transition-all text-center relative overflow-hidden';
+                    if (accent) accent.classList.remove('hidden');
+                    if (stageText) {
+                        stageText.classList.remove('text-slate-500');
+                        stageText.classList.add('text-emerald-400');
+                    }
+                    if (descText) {
+                        descText.classList.remove('text-slate-400');
+                        descText.classList.add('text-slate-300');
+                    }
                 } else {
-                    node.classList.remove('border-emerald-400', 'bg-emerald-500/10');
-                    node.classList.add('border-dark-border');
+                    node.className = 'cursor-pointer group p-4 rounded-xl bg-dark-bg/80 border border-dark-border/80 hover:border-slate-600 transition-all text-center relative overflow-hidden opacity-70 hover:opacity-100';
+                    if (accent) accent.classList.add('hidden');
+                    if (stageText) {
+                        stageText.classList.remove('text-emerald-400');
+                        stageText.classList.add('text-slate-500');
+                    }
+                    if (descText) {
+                        descText.classList.remove('text-slate-300');
+                        descText.classList.add('text-slate-400');
+                    }
                 }
             }
             
             document.getElementById('pipeline-desc').innerText = stepDescriptions[stepNum];
             document.getElementById('pipeline-active-tag').innerText = `Active Trace: Stage 0${stepNum}`;
-
-            // Pulse track position logic
-            const pulse = document.getElementById('pipeline-signal-pulse');
-            if (pulse) {
-                const offset = (stepNum - 1) * 22; // percent shift across stages
-                pulse.style.transform = `translateX(${offset * 4}%)`;
-            }
 
             // Expand sub-system breakdown on Stage 03 (ARCHITECT) or Stage 04 (BUILD)
             const subArch = document.getElementById('pipeline-sub-arch');
