@@ -1,0 +1,26 @@
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #090a0f;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #222634;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #333a4e;
+        }
+        .grid-bg {
+            background-size: 32px 32px;
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        }
+        .glow-effect {
+            box-shadow: 0 0 50px -10px rgba(16, 185, 129, 0.15);
+        }
+        .glow-effect-strong {
+            box-shadow: 0 0 60px -5px rgba(16, 185, 129, 0.25);
+        }
+    

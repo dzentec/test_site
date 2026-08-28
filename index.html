@@ -43,33 +43,7 @@
             }
         }
     </script>
-    <style>
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #090a0f;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #222634;
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #333a4e;
-        }
-        .grid-bg {
-            background-size: 32px 32px;
-            background-image: 
-                linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-        }
-        .glow-effect {
-            box-shadow: 0 0 50px -10px rgba(16, 185, 129, 0.15);
-        }
-        .glow-effect-strong {
-            box-shadow: 0 0 60px -5px rgba(16, 185, 129, 0.25);
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body class="bg-[#090a0f] text-slate-200 font-sans antialiased min-h-screen grid-bg selection:bg-emerald-500 selection:text-black relative">
 
@@ -91,19 +65,18 @@
 
             <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
                 <a href="#selected-work" class="hover:text-emerald-400 transition-colors" data-tech-keyword="CAPABILITIES">What We Do</a>
-                <a href="#the-difference" class="hover:text-emerald-400 transition-colors" data-tech-keyword="PHILOSOPHY">Philosophy</a>
                 <a href="#services" class="hover:text-emerald-400 transition-colors" data-tech-keyword="ENGAGEMENTS">Engagements</a>
                 <a href="#demo-library" class="hover:text-emerald-400 transition-colors flex items-center gap-1.5 text-emerald-400" data-tech-keyword="DELIVERABLES">
                     <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
                     <span>Deliverables</span>
                 </a>
-                <a href="#hardware-software" class="hover:text-emerald-400 transition-colors" data-tech-keyword="SYSTEMS">Systems</a>
-                <a href="#how-it-works" class="hover:text-emerald-400 transition-colors" data-tech-keyword="PROCESS">Process</a>
+                <a href="#how-it-works" class="hover:text-emerald-400 transition-colors" data-tech-keyword="PROCESS">How It Works</a>
+                <a href="#about" class="hover:text-emerald-400 transition-colors" data-tech-keyword="ABOUT">About</a>
             </nav>
 
             <div class="flex items-center gap-4">
-                <button onclick="openDiscoveryModal()" class="relative inline-flex items-center justify-center px-5 py-2.5 text-sm font-semibold text-black bg-emerald-400 rounded-xl hover:bg-emerald-300 transition-all transform active:scale-95 shadow-lg shadow-emerald-500/20">
-                    <span>Let's Talk</span>
+                <button onclick="openDiscoveryModal('Idea Signal — $490')" class="relative inline-flex items-center justify-center px-5 py-2.5 text-sm font-semibold text-black bg-emerald-400 rounded-xl hover:bg-emerald-300 transition-all transform active:scale-95 shadow-lg shadow-emerald-500/20">
+                    <span>Start with Idea Signal</span>
                     <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
                 </button>
             </div>
@@ -132,12 +105,12 @@
                 </h1>
 
                 <p class="text-lg sm:text-xl text-slate-300 max-w-2xl mx-auto font-normal leading-relaxed mb-10">
-                    We help founders turn ambiguous ideas into buildable products — combining product strategy, system architecture, software, hardware, and production.
+                    We help founders move from uncertain idea → validated decision → build-ready product specification.
                 </p>
 
                 <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-14">
-                    <button onclick="openDiscoveryModal('Hero Call')" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-emerald-400 hover:bg-emerald-300 text-black font-bold text-base transition-all transform hover:-translate-y-0.5 shadow-xl shadow-emerald-500/20 flex items-center justify-center gap-3">
-                        <span>Start Product Discovery</span>
+                    <button onclick="openDiscoveryModal('Idea Signal — $490')" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-emerald-400 hover:bg-emerald-300 text-black font-bold text-base transition-all transform hover:-translate-y-0.5 shadow-xl shadow-emerald-500/20 flex items-center justify-center gap-3">
+                        <span>Start with Idea Signal — $490</span>
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
                     </button>
                     <a href="#demo-library" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-dark-card border border-dark-border hover:border-emerald-500/50 text-slate-200 font-semibold text-base transition-colors flex items-center justify-center gap-2">
@@ -157,74 +130,42 @@
                     <span id="pipeline-active-tag" class="text-xs font-mono text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded border border-emerald-500/20">Active Trace: Stage 01</span>
                 </div>
 
-                <div class="grid grid-cols-1 sm:grid-cols-5 gap-3 relative z-10">
-                    <div onclick="highlightStep(1)" id="step-node-1" data-tech-keyword="PRODUCT" data-cursor-mode="product" class="cursor-pointer group p-4 rounded-xl bg-emerald-500/10 border border-emerald-400 shadow-[0_0_20px_rgba(16,185,129,0.15)] transition-all text-center relative overflow-hidden">
+                <div class="grid grid-cols-1 sm:grid-cols-4 gap-3 relative z-10">
+                    <div onclick="highlightStep(1)" id="step-node-1" data-tech-keyword="IDEA SIGNAL" data-cursor-mode="product" class="cursor-pointer group p-4 rounded-xl bg-emerald-500/10 border border-emerald-400 shadow-[0_0_20px_rgba(16,185,129,0.15)] transition-all text-center relative overflow-hidden">
                         <div id="step-accent-1" class="absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-emerald-400 to-transparent shadow-[0_0_12px_#10b981]"></div>
-                        <span class="text-[10px] font-mono text-emerald-400 block mb-1">STAGE 01</span>
-                        <span class="font-bold text-white text-sm block">IDEA</span>
-                        <span class="text-xs text-slate-300 mt-1 block">Concept & Vision</span>
+                        <span class="text-[10px] font-mono text-emerald-400 block mb-1">STAGE 01 · $490</span>
+                        <span class="font-bold text-white text-sm block">IDEA SIGNAL</span>
+                        <span class="text-xs text-slate-300 mt-1 block">Worth investigating?</span>
                     </div>
 
-                    <div onclick="highlightStep(2)" id="step-node-2" data-tech-keyword="VALIDATE" data-cursor-mode="product" class="cursor-pointer group p-4 rounded-xl bg-dark-bg/80 border border-dark-border/80 hover:border-slate-600 transition-all text-center relative overflow-hidden opacity-70 hover:opacity-100">
+                    <div onclick="highlightStep(2)" id="step-node-2" data-tech-keyword="PRODUCT AUTOPSY" data-cursor-mode="product" class="cursor-pointer group p-4 rounded-xl bg-dark-bg/80 border border-dark-border/80 hover:border-slate-600 transition-all text-center relative overflow-hidden opacity-70 hover:opacity-100">
                         <div id="step-accent-2" class="hidden absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-emerald-400 to-transparent shadow-[0_0_12px_#10b981]"></div>
-                        <span class="text-[10px] font-mono text-slate-500 block mb-1">STAGE 02</span>
-                        <span class="font-bold text-white text-sm block">PROVE</span>
-                        <span class="text-xs text-slate-400 mt-1 block">Autopsy & Risks</span>
+                        <span class="text-[10px] font-mono text-slate-500 block mb-1">STAGE 02 · $2,490</span>
+                        <span class="font-bold text-white text-sm block">PRODUCT AUTOPSY</span>
+                        <span class="text-xs text-slate-400 mt-1 block">Should we build it?</span>
                     </div>
 
-                    <div onclick="highlightStep(3)" id="step-node-3" data-tech-keyword="ARCHITECTURE" data-cursor-mode="software" class="cursor-pointer group p-4 rounded-xl bg-dark-bg/80 border border-dark-border/80 hover:border-slate-600 transition-all text-center relative overflow-hidden opacity-70 hover:opacity-100">
+                    <div onclick="highlightStep(3)" id="step-node-3" data-tech-keyword="PRODUCT BLUEPRINT" data-cursor-mode="software" class="cursor-pointer group p-4 rounded-xl bg-dark-bg/80 border border-dark-border/80 hover:border-slate-600 transition-all text-center relative overflow-hidden opacity-70 hover:opacity-100">
                         <div id="step-accent-3" class="hidden absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-emerald-400 to-transparent shadow-[0_0_12px_#10b981]"></div>
-                        <span class="text-[10px] font-mono text-slate-500 block mb-1">STAGE 03</span>
-                        <span class="font-bold text-white text-sm block">ARCHITECT</span>
-                        <span class="text-xs text-slate-400 mt-1 block">PRD & Tech Spec</span>
+                        <span class="text-[10px] font-mono text-slate-500 block mb-1">STAGE 03 · $4,900</span>
+                        <span class="font-bold text-white text-sm block">PRODUCT BLUEPRINT</span>
+                        <span class="text-xs text-slate-400 mt-1 block">What exactly to build?</span>
                     </div>
 
-                    <div onclick="highlightStep(4)" id="step-node-4" data-tech-keyword="SOFTWARE" data-cursor-mode="hardware" class="cursor-pointer group p-4 rounded-xl bg-dark-bg/80 border border-dark-border/80 hover:border-slate-600 transition-all text-center relative overflow-hidden opacity-70 hover:opacity-100">
+                    <div onclick="highlightStep(4)" id="step-node-4" data-tech-keyword="0→1 DEVELOPMENT" data-cursor-mode="hardware" class="cursor-pointer group p-4 rounded-xl bg-dark-bg/80 border border-dark-border/80 hover:border-slate-600 transition-all text-center relative overflow-hidden opacity-70 hover:opacity-100">
                         <div id="step-accent-4" class="hidden absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-emerald-400 to-transparent shadow-[0_0_12px_#10b981]"></div>
-                        <span class="text-[10px] font-mono text-slate-500 block mb-1">STAGE 04</span>
-                        <span class="font-bold text-white text-sm block">BUILD</span>
-                        <span class="text-xs text-slate-400 mt-1 block">HW / SW / Firmware</span>
-                    </div>
-
-                    <div onclick="highlightStep(5)" id="step-node-5" data-tech-keyword="PRODUCTION" data-cursor-mode="production" class="cursor-pointer group p-4 rounded-xl bg-dark-bg/80 border border-dark-border/80 hover:border-slate-600 transition-all text-center relative overflow-hidden opacity-70 hover:opacity-100">
-                        <div id="step-accent-5" class="hidden absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-emerald-400 to-transparent shadow-[0_0_12px_#10b981]"></div>
-                        <span class="text-[10px] font-mono text-slate-500 block mb-1">STAGE 05</span>
-                        <span class="font-bold text-white text-sm block">PRODUCE</span>
-                        <span class="text-xs text-slate-400 mt-1 block">DFM & Factory Scale</span>
+                        <span class="text-[10px] font-mono text-slate-500 block mb-1">STAGE 04 · From $12k</span>
+                        <span class="font-bold text-white text-sm block">0→1 DEVELOPMENT</span>
+                        <span class="text-xs text-slate-400 mt-1 block">Build it</span>
                     </div>
                 </div>
 
                 <div id="pipeline-info" class="mt-6 p-4 rounded-xl bg-dark-bg/60 border border-dark-border/80 text-xs font-mono text-slate-300 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 relative z-10">
                     <div class="flex items-center gap-3">
                         <span class="w-2 h-2 rounded-full bg-emerald-400" id="pipeline-indicator"></span>
-                        <span id="pipeline-desc">Stage 01: Turn raw concepts into validated product hypotheses.</span>
+                        <span id="pipeline-desc">Stage 01 (IDEA SIGNAL — $490): Is there enough signal to investigate this idea further?</span>
                     </div>
-                    <span class="text-slate-500 hidden sm:inline">Click stages to inspect architecture flow</span>
-                </div>
-
-                <!-- Sub-System Topology Drawer -->
-                <div id="pipeline-sub-arch" class="hidden mt-4 pt-4 border-t border-dark-border/60 font-mono text-xs transition-all">
-                    <div class="text-[11px] text-emerald-400 mb-2 font-bold flex items-center gap-2">
-                        <span>└─ SYSTEM TOPOLOGY BREAKDOWN:</span>
-                    </div>
-                    <div class="grid grid-cols-1 sm:grid-cols-4 gap-2 text-[11px]">
-                        <div class="p-2.5 rounded bg-dark-bg/90 border border-emerald-500/30 text-slate-300">
-                            <span class="text-emerald-400 font-bold block mb-0.5">PRODUCT STRATEGY</span>
-                            <span class="text-[10px] text-slate-400">Target customer & core problem definition</span>
-                        </div>
-                        <div class="p-2.5 rounded bg-dark-bg/90 border border-cyan-500/30 text-slate-300">
-                            <span class="text-cyan-400 font-bold block mb-0.5">SOFTWARE / CLOUD</span>
-                            <span class="text-[10px] text-slate-400">Web/Mobile App, APIs, AI data layer</span>
-                        </div>
-                        <div class="p-2.5 rounded bg-dark-bg/90 border border-amber-500/30 text-slate-300">
-                            <span class="text-amber-400 font-bold block mb-0.5">HARDWARE / FIRMWARE</span>
-                            <span class="text-[10px] text-slate-400">MCU logic, sensors, power & PCB layout</span>
-                        </div>
-                        <div class="p-2.5 rounded bg-dark-bg/90 border border-purple-500/30 text-slate-300">
-                            <span class="text-purple-400 font-bold block mb-0.5">PRODUCTION / DFM</span>
-                            <span class="text-[10px] text-slate-400">Unit COGS, tooling, supplier sourcing</span>
-                        </div>
-                    </div>
+                    <span class="text-slate-500 hidden sm:inline">Click stages to inspect each engagement</span>
                 </div>
             </div>
         </div>
@@ -237,7 +178,7 @@
                 <div>
                     <span class="text-xs font-mono text-emerald-400 uppercase tracking-widest block mb-2">// Cross-Disciplinary Capability</span>
                     <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
-                        From Vague Idea to Working Product
+                        From Uncertainty to Build-Ready
                     </h2>
                 </div>
                 <p class="text-slate-400 text-sm max-w-sm mt-4 md:mt-0">
@@ -381,19 +322,49 @@
                 </p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch mb-12">
-                <!-- Tier 01: Product Autopsy -->
-                <div class="p-8 rounded-3xl bg-dark-card border border-dark-border hover:border-emerald-500/40 transition-all flex flex-col justify-between">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch mb-6">
+                <!-- Tier 00: Idea Signal -->
+                <div class="p-7 rounded-3xl bg-dark-card border border-dark-border hover:border-emerald-500/40 transition-all flex flex-col justify-between">
                     <div>
                         <div class="flex items-center justify-between mb-4">
-                            <span class="text-xs font-mono text-emerald-400">STAGE 01 — BEFORE YOU BUILD</span>
+                            <span class="text-[10px] font-mono text-emerald-400">STAGE 01</span>
+                            <span class="text-[10px] font-mono bg-dark-bg text-slate-400 px-2 py-1 rounded border border-dark-border">1–2 DAYS</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Idea Signal</h3>
+                        <p class="text-xs text-slate-400 mb-6">Is this idea worth investigating? A fast, low-cost gut-check before you commit real budget.</p>
+
+                        <div class="text-3xl font-extrabold text-white mb-6">$490 <span class="text-xs font-mono text-slate-500 font-normal">/ fixed fee</span></div>
+
+                        <div class="space-y-3 text-xs text-slate-300 border-t border-dark-border/80 pt-6 mb-8">
+                            <span class="font-mono text-emerald-400 font-bold block mb-2">Deliverables:</span>
+                            <div class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">✓</span> <span>Market signal</span></div>
+                            <div class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">✓</span> <span>Competitive signal</span></div>
+                            <div class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">✓</span> <span>Opportunity signal</span></div>
+                            <div class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">✓</span> <span>Technical red flags</span></div>
+                            <div class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">✓</span> <span>Initial monetization signal</span></div>
+                            <div class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">✓</span> <span>GO / NO-GO recommendation</span></div>
+                        </div>
+                    </div>
+                    <button onclick="openDiscoveryModal('Idea Signal — $490')" class="w-full py-3.5 rounded-xl bg-dark-bg border border-dark-border hover:border-emerald-500/50 text-emerald-400 font-bold text-sm transition-colors text-center">
+                        Start with Idea Signal
+                    </button>
+                </div>
+
+                <!-- Tier 01: Product Autopsy -->
+                <div class="p-7 rounded-3xl bg-dark-card border border-dark-border hover:border-emerald-500/40 transition-all flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-[10px] font-mono text-emerald-400">STAGE 02</span>
                             <span class="text-[10px] font-mono bg-dark-bg text-slate-400 px-2 py-1 rounded border border-dark-border">3–5 DAYS</span>
                         </div>
-                        <h3 class="text-2xl font-bold text-white mb-2">Product Autopsy</h3>
-                        <p class="text-xs text-slate-400 mb-6">For founders with a raw concept who need objective risk & feasibility evaluation before spending budget.</p>
-                        
-                        <div class="text-3xl font-extrabold text-white mb-6">$500 <span class="text-xs font-mono text-slate-500 font-normal">/ fixed fee</span></div>
-                        
+                        <h3 class="text-xl font-bold text-white mb-2">Product Autopsy</h3>
+                        <p class="text-xs text-slate-400 mb-6">Should we build it? Objective risk & feasibility evaluation before spending real budget.</p>
+
+                        <div class="text-3xl font-extrabold text-white mb-1">$2,490 <span class="text-xs font-mono text-slate-500 font-normal">/ fixed fee</span></div>
+                        <div class="text-[11px] font-mono text-emerald-400 bg-emerald-500/10 p-2 rounded border border-emerald-500/30 mb-6">
+                            🎁 $490 Idea Signal credit included
+                        </div>
+
                         <div class="space-y-3 text-xs text-slate-300 border-t border-dark-border/80 pt-6 mb-8">
                             <span class="font-mono text-emerald-400 font-bold block mb-2">Professional Deliverables:</span>
                             <div class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">✓</span> <span>Market research & competitive map</span></div>
@@ -403,54 +374,55 @@
                             <div class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">✓</span> <span>60-min Founder Review call</span></div>
                         </div>
                     </div>
-                    <button onclick="openDiscoveryModal('Product Autopsy — $500')" class="w-full py-3.5 rounded-xl bg-dark-bg border border-dark-border hover:border-emerald-500/50 text-emerald-400 font-bold text-sm transition-colors text-center">
+                    <button onclick="openDiscoveryModal('Product Autopsy — $2,490')" class="w-full py-3.5 rounded-xl bg-dark-bg border border-dark-border hover:border-emerald-500/50 text-emerald-400 font-bold text-sm transition-colors text-center">
                         Book Product Autopsy
                     </button>
                 </div>
 
                 <!-- Tier 02: Product Blueprint (FLAGSHIP) -->
-                <div class="p-8 rounded-3xl bg-dark-card border-2 border-emerald-400 relative shadow-2xl glow-effect flex flex-col justify-between">
+                <div class="p-7 rounded-3xl bg-dark-card border-2 border-emerald-400 relative shadow-2xl glow-effect flex flex-col justify-between">
                     <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-emerald-400 text-black font-mono font-bold text-[10px] uppercase px-3 py-1 rounded-full shadow">
-                        ★ FLAGSHIP PRODUCTIZATION
+                        ★ FLAGSHIP
                     </div>
                     <div>
                         <div class="flex items-center justify-between mb-4 pt-2">
-                            <span class="text-xs font-mono text-emerald-400">STAGE 02 — DEFINE WHAT TO BUILD</span>
+                            <span class="text-[10px] font-mono text-emerald-400">STAGE 03</span>
                             <span class="text-[10px] font-mono bg-emerald-500/10 text-emerald-400 px-2 py-1 rounded border border-emerald-500/30">7–14 DAYS</span>
                         </div>
-                        <h3 class="text-2xl font-bold text-white mb-2">Product Blueprint</h3>
-                        <p class="text-xs text-slate-300 mb-6">Complete PRD, user flows, architecture diagrams, technical BOM specs, and AI build prompt package.</p>
-                        
-                        <div class="text-3xl font-extrabold text-white mb-1">$2,500 <span class="text-xs font-mono text-slate-500 font-normal">/ fixed fee</span></div>
+                        <h3 class="text-xl font-bold text-white mb-2">Product Blueprint</h3>
+                        <p class="text-xs text-slate-300 mb-6">What exactly should we build? A build-ready specification: 18 documents, 40–70 pages.</p>
+
+                        <div class="text-3xl font-extrabold text-white mb-1">$4,900 <span class="text-xs font-mono text-slate-500 font-normal">/ fixed fee</span></div>
                         <div class="text-[11px] font-mono text-emerald-400 bg-emerald-500/10 p-2 rounded border border-emerald-500/30 mb-6">
-                            🎁 <strong>BUILD CREDIT:</strong> 100% credited toward 0→1 Dev
+                            🎁 $2,490 Product Autopsy credit included
                         </div>
 
                         <div class="space-y-3 text-xs text-slate-300 border-t border-dark-border/80 pt-6 mb-8">
-                            <span class="font-mono text-emerald-400 font-bold block mb-2">Complete Blueprint Pack:</span>
+                            <span class="font-mono text-emerald-400 font-bold block mb-2">Complete Blueprint Pack (18 docs):</span>
                             <div class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">✓</span> <span>Product strategy & MVP scope boundary</span></div>
                             <div class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">✓</span> <span>User flow diagrams & wireframe spec</span></div>
                             <div class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">✓</span> <span>PRD + API / System architecture spec</span></div>
-                            <div class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">✓</span> <span>Hardware BOM & PCB feasibility (if physical)</span></div>
+                            <div class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">✓</span> <span>NFR, security & AI integration spec</span></div>
+                            <div class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">✓</span> <span>Hardware BOM & PCB feasibility <em>(optional module)</em></span></div>
                             <div class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">✓</span> <span><strong>AI Build Pack</strong> (Claude/Cursor ready prompts)</span></div>
                             <div class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">✓</span> <span>60-min Founder Architecture Handoff</span></div>
                         </div>
                     </div>
-                    <button onclick="openDiscoveryModal('Product Blueprint — $2,500')" class="w-full py-4 rounded-xl bg-emerald-400 hover:bg-emerald-300 text-black font-extrabold text-sm transition-all shadow-lg shadow-emerald-500/20 text-center">
+                    <button onclick="openDiscoveryModal('Product Blueprint — $4,900')" class="w-full py-4 rounded-xl bg-emerald-400 hover:bg-emerald-300 text-black font-extrabold text-sm transition-all shadow-lg shadow-emerald-500/20 text-center">
                         Get Product Blueprint
                     </button>
                 </div>
 
                 <!-- Tier 03: 0->1 Product Development -->
-                <div class="p-8 rounded-3xl bg-dark-card border border-dark-border hover:border-cyan-500/40 transition-all flex flex-col justify-between">
+                <div class="p-7 rounded-3xl bg-dark-card border border-dark-border hover:border-cyan-500/40 transition-all flex flex-col justify-between opacity-90">
                     <div>
                         <div class="flex items-center justify-between mb-4">
-                            <span class="text-xs font-mono text-cyan-400">STAGE 03 — FULL BUILD & LAUNCH</span>
-                            <span class="text-[10px] font-mono bg-dark-bg text-slate-400 px-2 py-1 rounded border border-dark-border">CUSTOM SPRINT</span>
+                            <span class="text-[10px] font-mono text-cyan-400">STAGE 04</span>
+                            <span class="text-[10px] font-mono bg-dark-bg text-slate-400 px-2 py-1 rounded border border-dark-border">COMING SOON</span>
                         </div>
-                        <h3 class="text-2xl font-bold text-white mb-2">0→1 Product Dev</h3>
-                        <p class="text-xs text-slate-400 mb-6">Turn blueprint specifications into a working product across software, hardware, firmware, and production handoff.</p>
-                        
+                        <h3 class="text-xl font-bold text-white mb-2">0→1 Product Dev</h3>
+                        <p class="text-xs text-slate-400 mb-6">Turn a completed Blueprint into a working product across software, hardware, firmware, and production handoff.</p>
+
                         <div class="text-3xl font-extrabold text-white mb-2">From $12,000</div>
                         <p class="text-[11px] font-mono text-slate-400 mb-6">Fixed price defined after Product Blueprint</p>
 
@@ -466,6 +438,19 @@
                         Discuss 0→1 Dev Scope
                     </button>
                 </div>
+            </div>
+
+            <!-- Roll-over Credit Banner -->
+            <div class="max-w-4xl mx-auto mt-12 p-8 rounded-2xl bg-dark-card border border-emerald-500/30 text-center">
+                <h3 class="text-xl sm:text-2xl font-bold text-white mb-6">Start small. Go deeper when needed.</h3>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-2 font-mono text-xs sm:text-sm mb-4">
+                    <span class="px-4 py-2.5 rounded-xl bg-emerald-500/10 border border-emerald-400 text-emerald-300 font-bold">IDEA SIGNAL · $490</span>
+                    <span class="text-slate-500">+ $2,000 →</span>
+                    <span class="px-4 py-2.5 rounded-xl bg-emerald-500/10 border border-emerald-400 text-emerald-300 font-bold">PRODUCT AUTOPSY · $2,490</span>
+                    <span class="text-slate-500">+ $2,410 →</span>
+                    <span class="px-4 py-2.5 rounded-xl bg-emerald-400 text-black font-extrabold">PRODUCT BLUEPRINT · $4,900</span>
+                </div>
+                <p class="text-xs font-mono text-slate-400">Every previous package is credited toward the next.</p>
             </div>
         </div>
     </section>
@@ -502,9 +487,9 @@
                         </ul>
                     </div>
 
-                    <button onclick="downloadSample('INIT-Studio-Product-Autopsy-Sample.pdf', 'product_autopsy')" class="w-full py-3 rounded-xl bg-dark-bg border border-dark-border hover:border-emerald-500/60 text-emerald-400 font-mono text-xs flex items-center justify-center gap-2 transition-colors">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
-                        <span>↓ Download Sample (TXT/PDF 2.4 MB)</span>
+                    <button onclick="openSampleModal('Product Autopsy')" class="w-full py-3 rounded-xl bg-dark-bg border border-dark-border hover:border-emerald-500/60 text-emerald-400 font-mono text-xs flex items-center justify-center gap-2 transition-colors">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                        <span>Get the sample by email</span>
                     </button>
                 </div>
 
@@ -517,7 +502,7 @@
                         <p class="text-xs font-mono text-slate-400 mb-6">"AI Inventory Copilot for Shopify"</p>
                         
                         <ul class="space-y-2.5 text-xs text-slate-300 border-t border-dark-border/80 pt-4 mb-8">
-                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>12 separate PDFs in package</li>
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>18 structured documents, 40–70 pages</li>
                             <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>Executive Summary ($18-25k budget spec)</li>
                             <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>Full PRD with complete user stories</li>
                             <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>System Architecture & API specs</li>
@@ -525,18 +510,19 @@
                         </ul>
                     </div>
 
-                    <button onclick="downloadSample('INIT-Studio-Product-Blueprint-Sample.zip', 'product_blueprint')" class="w-full py-3.5 rounded-xl bg-emerald-400 hover:bg-emerald-300 text-black font-bold font-mono text-xs flex items-center justify-center gap-2 transition-all shadow-lg shadow-emerald-500/20">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
-                        <span>↓ Download Full Package (TXT/ZIP 8.1 MB)</span>
+                    <button onclick="openSampleModal('Product Blueprint')" class="w-full py-3.5 rounded-xl bg-emerald-400 hover:bg-emerald-300 text-black font-bold font-mono text-xs flex items-center justify-center gap-2 transition-all shadow-lg shadow-emerald-500/20">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                        <span>Get the full package by email</span>
                     </button>
                 </div>
 
                 <!-- Sample 03: Hardware Feasibility -->
                 <div class="p-8 rounded-2xl bg-dark-card border border-dark-border hover:border-cyan-500/40 transition-all flex flex-col justify-between">
                     <div>
-                        <span class="text-[10px] font-mono text-cyan-400 bg-cyan-500/10 px-2.5 py-1 rounded border border-cyan-500/20 block w-max mb-3">FULL DEMO CASE STUDY</span>
+                        <span class="text-[10px] font-mono text-cyan-400 bg-cyan-500/10 px-2.5 py-1 rounded border border-cyan-500/20 block w-max mb-3">OPTIONAL HARDWARE MODULE</span>
                         <h3 class="text-xl font-bold text-white mb-1">HARDWARE FEASIBILITY</h3>
-                        <p class="text-xs font-mono text-slate-400 mb-6">"Smart Industrial IoT Sensor"</p>
+                        <p class="text-xs font-mono text-slate-400 mb-3">"Smart Industrial IoT Sensor"</p>
+                        <p class="text-[11px] text-slate-500 mb-3">Added to a Product Blueprint only when the product is physical — not part of every engagement.</p>
                         
                         <ul class="space-y-2.5 text-xs text-slate-300 border-t border-dark-border/80 pt-4 mb-8">
                             <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>13 docs + Excel BOM sheets</li>
@@ -547,15 +533,15 @@
                         </ul>
                     </div>
 
-                    <button onclick="downloadSample('INIT-Studio-Hardware-Feasibility-Sample.zip', 'hardware_feasibility')" class="w-full py-3 rounded-xl bg-dark-bg border border-dark-border hover:border-cyan-500/60 text-cyan-400 font-mono text-xs flex items-center justify-center gap-2 transition-colors">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
-                        <span>↓ Download Sample (TXT/ZIP 6.3 MB)</span>
+                    <button onclick="openSampleModal('Hardware Feasibility')" class="w-full py-3 rounded-xl bg-dark-bg border border-dark-border hover:border-cyan-500/60 text-cyan-400 font-mono text-xs flex items-center justify-center gap-2 transition-colors">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                        <span>Get the sample by email</span>
                     </button>
                 </div>
             </div>
 
-            <p class="text-center text-xs font-mono text-slate-500 mb-12">
-                No email required. No lead capture. Just real engineering work.
+            <p class="text-center text-xs font-mono text-slate-500 mb-12 max-w-xl mx-auto">
+                We don't gate the website behind a form. Sample deliverables are sent by email so you can review them in your own time.
             </p>
 
             <!-- Bridge CTA Banner -->
@@ -565,9 +551,58 @@
                     This is exactly what you'll receive for your idea during a Product Blueprint engagement.
                 </p>
                 <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                    <button onclick="openDiscoveryModal('Product Blueprint — $2,500')" class="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-emerald-400 hover:bg-emerald-300 text-black font-extrabold text-sm transition-all shadow-lg shadow-emerald-500/20">
-                        Get My Blueprint ($2,500) →
+                    <button onclick="openDiscoveryModal('Idea Signal — $490')" class="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-emerald-400 hover:bg-emerald-300 text-black font-extrabold text-sm transition-all shadow-lg shadow-emerald-500/20">
+                        Start with Idea Signal ($490) →
                     </button>
+                    <a href="#services" class="text-xs font-mono text-slate-400 hover:text-emerald-400 transition-colors">Already validated? → Product Autopsy</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust & Data Protection Section -->
+    <section id="trust" class="py-24 border-t border-dark-border/50 bg-dark-bg/40">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-14">
+                <span class="text-xs font-mono text-emerald-400 uppercase tracking-widest block mb-2">// Data Protection</span>
+                <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight mb-4">
+                    Your idea is not our data.
+                </h2>
+                <p class="text-slate-400 text-sm sm:text-base font-sans">
+                    Product ideas can contain sensitive business and technical information. We designed the intake process around minimum data retention.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="p-6 rounded-2xl bg-dark-card border border-dark-border">
+                    <span class="text-2xl block mb-3">🔐</span>
+                    <h4 class="text-sm font-bold text-white mb-1.5">Encryption</h4>
+                    <p class="text-xs text-slate-400 leading-relaxed">Your submitted information is encrypted in transit and at rest.</p>
+                </div>
+                <div class="p-6 rounded-2xl bg-dark-card border border-dark-border">
+                    <span class="text-2xl block mb-3">🔑</span>
+                    <h4 class="text-sm font-bold text-white mb-1.5">Key separation</h4>
+                    <p class="text-xs text-slate-400 leading-relaxed">Encryption keys are managed separately from the stored data.</p>
+                </div>
+                <div class="p-6 rounded-2xl bg-dark-card border border-dark-border">
+                    <span class="text-2xl block mb-3">🗑️</span>
+                    <h4 class="text-sm font-bold text-white mb-1.5">Minimum retention</h4>
+                    <p class="text-xs text-slate-400 leading-relaxed">We retain only what is required to deliver the engagement.</p>
+                </div>
+                <div class="p-6 rounded-2xl bg-dark-card border border-dark-border">
+                    <span class="text-2xl block mb-3">🚫</span>
+                    <h4 class="text-sm font-bold text-white mb-1.5">No AI training</h4>
+                    <p class="text-xs text-slate-400 leading-relaxed">Your project data is not used to train public AI models.</p>
+                </div>
+                <div class="p-6 rounded-2xl bg-dark-card border border-dark-border">
+                    <span class="text-2xl block mb-3">🤖</span>
+                    <h4 class="text-sm font-bold text-white mb-1.5">Controlled AI usage</h4>
+                    <p class="text-xs text-slate-400 leading-relaxed">Project information isn't automatically sent to third-party AI systems — only where explicitly required, within defined data-handling boundaries.</p>
+                </div>
+                <div class="p-6 rounded-2xl bg-dark-card border border-dark-border">
+                    <span class="text-2xl block mb-3">🧹</span>
+                    <h4 class="text-sm font-bold text-white mb-1.5">Deletion on request</h4>
+                    <p class="text-xs text-slate-400 leading-relaxed">You can request deletion of your project data at any time.</p>
                 </div>
             </div>
         </div>
@@ -577,13 +612,13 @@
     <section id="hardware-software" class="py-24 border-t border-dark-border/50 relative overflow-hidden bg-dark-bg/60">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="text-center max-w-3xl mx-auto mb-16">
-                <span class="text-xs font-mono text-emerald-400 uppercase tracking-widest block mb-2">// Cross-System Engineering</span>
+                <span class="text-xs font-mono text-emerald-400 uppercase tracking-widest block mb-2">// The Depth Behind The Work</span>
                 <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight mb-4">
                     Software is easy to prototype.<br>
                     <span class="text-emerald-400">Products are not.</span>
                 </h2>
                 <p class="text-slate-300 text-base max-w-2xl mx-auto font-sans">
-                    A software decision can change the BOM. A hardware decision can change the cloud architecture. Production constraints can change the product itself.
+                    A software decision can change the BOM. A hardware decision can change the cloud architecture. Production constraints can change the product itself. Cross-disciplinary engineering experience allows us to produce specifications that survive contact with real implementation.
                 </p>
             </div>
 
@@ -649,38 +684,33 @@
             <div class="text-center max-w-3xl mx-auto mb-16">
                 <span class="text-xs font-mono text-emerald-400 uppercase tracking-widest block mb-2">// Process</span>
                 <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight mb-4">
-                    A Simple 5-Step Execution
+                    How The Engagement Works
                 </h2>
                 <p class="text-slate-400 text-sm sm:text-base font-mono">
                     Direct access to the product architect making the core engineering decisions.
                 </p>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-12">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
                 <div class="p-6 rounded-xl bg-dark-card border border-dark-border relative">
                     <span class="text-xs font-mono text-emerald-400 block mb-2">01</span>
-                    <h4 class="text-lg font-bold text-white mb-2">Discovery</h4>
-                    <p class="text-xs text-slate-400 leading-relaxed">Understand the core problem, founder vision, and constraints.</p>
+                    <h4 class="text-lg font-bold text-white mb-2">Signal</h4>
+                    <p class="text-xs text-slate-400 leading-relaxed">We determine whether the idea deserves deeper analysis.</p>
                 </div>
                 <div class="p-6 rounded-xl bg-dark-card border border-dark-border relative">
                     <span class="text-xs font-mono text-emerald-400 block mb-2">02</span>
-                    <h4 class="text-lg font-bold text-white mb-2">Challenge</h4>
-                    <p class="text-xs text-slate-400 leading-relaxed">Research the market and try to rigorously break the idea.</p>
+                    <h4 class="text-lg font-bold text-white mb-2">Autopsy</h4>
+                    <p class="text-xs text-slate-400 leading-relaxed">We challenge the product from market, technical and economic angles.</p>
                 </div>
                 <div class="p-6 rounded-xl bg-dark-card border border-dark-border relative">
                     <span class="text-xs font-mono text-emerald-400 block mb-2">03</span>
-                    <h4 class="text-lg font-bold text-white mb-2">Architecture</h4>
-                    <p class="text-xs text-slate-400 leading-relaxed">Define the smallest buildable product specification (PRD/BOM).</p>
+                    <h4 class="text-lg font-bold text-white mb-2">Blueprint</h4>
+                    <p class="text-xs text-slate-400 leading-relaxed">We convert the surviving concept into a build-ready specification.</p>
                 </div>
                 <div class="p-6 rounded-xl bg-dark-card border border-dark-border relative">
                     <span class="text-xs font-mono text-emerald-400 block mb-2">04</span>
                     <h4 class="text-lg font-bold text-white mb-2">Build</h4>
-                    <p class="text-xs text-slate-400 leading-relaxed">Software, hardware engineering & firmware implementation.</p>
-                </div>
-                <div class="p-6 rounded-xl bg-dark-card border border-dark-border relative">
-                    <span class="text-xs font-mono text-emerald-400 block mb-2">05</span>
-                    <h4 class="text-lg font-bold text-white mb-2">Launch</h4>
-                    <p class="text-xs text-slate-400 leading-relaxed">Prototype testing, pilot validation, and factory handoff.</p>
+                    <p class="text-xs text-slate-400 leading-relaxed">Selected Blueprint projects can move into 0→1 Development.</p>
                 </div>
             </div>
 
@@ -714,7 +744,7 @@
                         We are product builders, not just consultants.
                     </h3>
                     <p class="text-sm sm:text-base text-slate-300 leading-relaxed mb-6">
-                        At Init Studio, we've spent years building products across software, embedded systems, hardware, and manufacturing — including hands-on experience working with the Shenzhen hardware ecosystem. We started on the physical side of product development and gradually expanded across the entire software stack. Combining that cross-disciplinary background with modern AI tools, we take founders from raw idea to buildable product.
+                        We've spent years building products across software, embedded systems, hardware, and manufacturing — including hands-on experience with the Shenzhen hardware ecosystem. We use that cross-disciplinary engineering experience to determine what should actually be built before engineering begins.
                     </p>
 
                     <div class="flex flex-wrap gap-2">
@@ -743,10 +773,13 @@
                 Let's find out what's actually worth building before spending your time and money.
             </p>
 
-            <button onclick="openDiscoveryModal('Final CTA')" class="px-10 py-5 rounded-2xl bg-emerald-400 hover:bg-emerald-300 text-black font-extrabold text-lg transition-all transform hover:-translate-y-1 shadow-2xl shadow-emerald-500/30 inline-flex items-center gap-3">
-                <span>Start Product Discovery</span>
+            <button onclick="openDiscoveryModal('Idea Signal — $490')" class="px-10 py-5 rounded-2xl bg-emerald-400 hover:bg-emerald-300 text-black font-extrabold text-lg transition-all transform hover:-translate-y-1 shadow-2xl shadow-emerald-500/30 inline-flex items-center gap-3">
+                <span>Start with Idea Signal — $490</span>
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
             </button>
+            <p class="mt-5">
+                <a href="#discovery-form" onclick="openDiscoveryModal(); return false;" class="text-sm font-mono text-slate-400 hover:text-emerald-400 transition-colors">Not sure which package fits? → Tell us about the idea</a>
+            </p>
         </div>
     </section>
 
@@ -773,7 +806,7 @@
 
             <div class="mb-6">
                 <span class="text-xs font-mono text-emerald-400 uppercase tracking-wider block mb-1">Interactive Setup</span>
-                <h3 class="text-2xl font-bold text-white">Start Product Discovery</h3>
+                <h3 class="text-2xl font-bold text-white">Find Your Starting Point</h3>
                 <p class="text-xs text-slate-400 mt-1">Tell us briefly about your concept to route the right engagement tier.</p>
             </div>
 
@@ -791,9 +824,10 @@
                 <div>
                     <label class="block text-xs font-mono text-slate-300 mb-2">2. What stage are you in?</label>
                     <select id="product-stage" class="w-full bg-dark-bg border border-dark-border rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-emerald-400">
-                        <option value="raw">Raw concept (Need Autopsy — $500)</option>
-                        <option value="validated">Validated idea (Need Blueprint — $2,500)</option>
-                        <option value="ready-to-build">Ready to build MVP (0→1 Dev — From $12k)</option>
+                        <option value="signal">Very early / uncertain idea (Need Idea Signal — $490)</option>
+                        <option value="raw">Have some research (Need Autopsy — $2,490)</option>
+                        <option value="validated">Validated idea (Need Blueprint — $4,900)</option>
+                        <option value="ready-to-build">Blueprint already done (0→1 Dev — From $12k)</option>
                     </select>
                 </div>
 
@@ -827,465 +861,62 @@
         </div>
     </div>
 
+    <!-- Sample Request Modal -->
+    <div id="sample-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden flex items-center justify-center p-4">
+        <div class="bg-dark-card border border-dark-border w-full max-w-md rounded-2xl p-6 sm:p-8 relative shadow-2xl">
+            <button onclick="closeSampleModal()" class="absolute top-5 right-5 text-slate-400 hover:text-white p-2">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+            </button>
+
+            <div class="mb-6">
+                <span class="text-xs font-mono text-emerald-400 uppercase tracking-wider block mb-1">See exactly what you get</span>
+                <h3 id="sample-modal-title" class="text-xl font-bold text-white">Get the sample by email</h3>
+                <p class="text-xs text-slate-400 mt-1">We'll send the sample deliverable to your inbox — no site-wide gate, just this one document.</p>
+            </div>
+
+            <form id="sample-form" onsubmit="handleSampleFormSubmit(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-mono text-slate-300 mb-2">Work email</label>
+                    <input required type="email" id="sample-email" placeholder="founder@company.com" class="w-full bg-dark-bg border border-dark-border rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-emerald-400 placeholder:text-slate-600">
+                </div>
+                <div>
+                    <label class="block text-xs font-mono text-slate-300 mb-2">Company / Project</label>
+                    <input required type="text" id="sample-company" placeholder="Your company or project name" class="w-full bg-dark-bg border border-dark-border rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-emerald-400 placeholder:text-slate-600">
+                </div>
+                <div>
+                    <label class="block text-xs font-mono text-slate-300 mb-2">What are you building?</label>
+                    <select id="sample-product-type" class="w-full bg-dark-bg border border-dark-border rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-emerald-400">
+                        <option value="saas">SaaS / Web</option>
+                        <option value="ai">AI product</option>
+                        <option value="hardware">Hardware</option>
+                        <option value="iot">IoT</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="pt-2">
+                    <button type="submit" class="w-full py-3.5 rounded-xl bg-emerald-400 hover:bg-emerald-300 text-black font-bold text-sm transition-colors shadow-lg shadow-emerald-500/20">
+                        Send Me the Sample
+                    </button>
+                </div>
+            </form>
+
+            <div id="sample-modal-success" class="hidden text-center py-6">
+                <div class="w-14 h-14 rounded-full bg-emerald-500/20 border border-emerald-400 text-emerald-400 flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                </div>
+                <h4 class="text-lg font-bold text-white mb-2">Sample request received!</h4>
+                <p class="text-sm text-slate-300 mb-6">Check your inbox shortly — we'll send it to the email you provided.</p>
+                <button onclick="closeSampleModal()" class="px-6 py-2.5 rounded-xl bg-dark-bg border border-dark-border text-slate-300 font-mono text-xs">
+                    Close Window
+                </button>
+            </div>
+        </div>
+    </div>
+
     <!-- Toast Notification Container -->
     <div id="toast-container" class="fixed bottom-6 right-6 z-50 flex flex-col gap-2 pointer-events-none"></div>
 
     <!-- Client-Side JavaScript Logic -->
-    <script>
-        // Pipeline Stage Descriptions
-        const stepDescriptions = {
-            1: "Stage 01 (IDEA): Turn raw concepts and product goals into structured hypotheses.",
-            2: "Stage 02 (PROVE): Idea autopsy, market feasibility, technical checks, and risk analysis.",
-            3: "Stage 03 (ARCHITECT): Complete PRD, system topology, user flows, and technical BOM/stack.",
-            4: "Stage 04 (BUILD): Software engineering, PCB fabrication, and embedded firmware implementation.",
-            5: "Stage 05 (PRODUCE): DFM, supply chain sourcing, prototype testing, and factory scale."
-        };
-
-        let currentAutoStage = 1;
-        let autoStageInterval = null;
-
-        function highlightStep(stepNum, isManual = true) {
-            if (isManual && autoStageInterval) {
-                clearInterval(autoStageInterval);
-            }
-
-            for (let i = 1; i <= 5; i++) {
-                const node = document.getElementById(`step-node-${i}`);
-                const accent = document.getElementById(`step-accent-${i}`);
-                const stageText = node.querySelector('.font-mono');
-                const descText = node.querySelector('.text-xs');
-
-                if (i === stepNum) {
-                    node.className = 'cursor-pointer group p-4 rounded-xl bg-emerald-500/10 border border-emerald-400 shadow-[0_0_20px_rgba(16,185,129,0.15)] transition-all text-center relative overflow-hidden';
-                    if (accent) accent.classList.remove('hidden');
-                    if (stageText) {
-                        stageText.classList.remove('text-slate-500');
-                        stageText.classList.add('text-emerald-400');
-                    }
-                    if (descText) {
-                        descText.classList.remove('text-slate-400');
-                        descText.classList.add('text-slate-300');
-                    }
-                } else {
-                    node.className = 'cursor-pointer group p-4 rounded-xl bg-dark-bg/80 border border-dark-border/80 hover:border-slate-600 transition-all text-center relative overflow-hidden opacity-70 hover:opacity-100';
-                    if (accent) accent.classList.add('hidden');
-                    if (stageText) {
-                        stageText.classList.remove('text-emerald-400');
-                        stageText.classList.add('text-slate-500');
-                    }
-                    if (descText) {
-                        descText.classList.remove('text-slate-300');
-                        descText.classList.add('text-slate-400');
-                    }
-                }
-            }
-            
-            document.getElementById('pipeline-desc').innerText = stepDescriptions[stepNum];
-            document.getElementById('pipeline-active-tag').innerText = `Active Trace: Stage 0${stepNum}`;
-
-            const subArch = document.getElementById('pipeline-sub-arch');
-            if (subArch) {
-                if (stepNum === 3 || stepNum === 4) {
-                    subArch.classList.remove('hidden');
-                } else {
-                    subArch.classList.add('hidden');
-                }
-            }
-        }
-
-        function startPipelineAutoSignal() {
-            autoStageInterval = setInterval(() => {
-                currentAutoStage = (currentAutoStage % 5) + 1;
-                highlightStep(currentAutoStage, false);
-            }, 3500);
-        }
-
-        // Technical Canvas Motion
-        function initEngineeringMotion() {
-            const canvas = document.getElementById('tech-canvas');
-            if (!canvas) return;
-            const ctx = canvas.getContext('2d');
-
-            let width = canvas.width = window.innerWidth;
-            let height = canvas.height = window.innerHeight;
-
-            window.addEventListener('resize', () => {
-                width = canvas.width = window.innerWidth;
-                height = canvas.height = window.innerHeight;
-            });
-
-            const trail = [];
-            const maxTrailLength = 14;
-            let mouseX = -100;
-            let mouseY = -100;
-            let activePulseTarget = null;
-            let currentPulseTarget = null;
-            let pulseOpacity = 0;
-            let pulsePhase = 0;
-            let activeCursorMode = 'product';
-
-            window.addEventListener('mousemove', (e) => {
-                mouseX = e.clientX;
-                mouseY = e.clientY;
-
-                trail.unshift({
-                    x: mouseX,
-                    y: mouseY,
-                    time: Date.now(),
-                    size: Math.random() * 2 + 1.5,
-                    mode: activeCursorMode
-                });
-
-                if (trail.length > maxTrailLength) {
-                    trail.pop();
-                }
-
-                let foundTarget = null;
-                const techNodes = document.querySelectorAll('[data-tech-keyword]');
-                techNodes.forEach(node => {
-                    const rect = node.getBoundingClientRect();
-                    if (
-                        mouseX >= rect.left - 10 &&
-                        mouseX <= rect.right + 10 &&
-                        mouseY >= rect.top - 10 &&
-                        mouseY <= rect.bottom + 10
-                    ) {
-                        foundTarget = {
-                            x: rect.left + rect.width / 2,
-                            y: rect.top + rect.height / 2,
-                            width: rect.width,
-                            height: rect.height,
-                            label: node.getAttribute('data-tech-keyword')
-                        };
-                        const mode = node.getAttribute('data-cursor-mode');
-                        if (mode) activeCursorMode = mode;
-                    }
-                });
-                activePulseTarget = foundTarget;
-            });
-
-            function draw() {
-                ctx.clearRect(0, 0, width, height);
-
-                // Pulse target on hover keyword
-                if (activePulseTarget) {
-                    currentPulseTarget = activePulseTarget;
-                    pulseOpacity = Math.min(1, pulseOpacity + 0.1);
-                } else {
-                    pulseOpacity = Math.max(0, pulseOpacity - 0.08);
-                }
-
-                if (currentPulseTarget && pulseOpacity > 0.01) {
-                    pulsePhase += 0.05;
-                    const expand = Math.sin(pulsePhase) * 3 + 6;
-
-                    ctx.save();
-                    ctx.strokeStyle = `rgba(16, 185, 129, ${pulseOpacity * 0.4})`;
-                    ctx.lineWidth = 1;
-                    ctx.setLineDash([3, 3]);
-                    ctx.strokeRect(
-                        currentPulseTarget.x - currentPulseTarget.width / 2 - expand,
-                        currentPulseTarget.y - currentPulseTarget.height / 2 - expand,
-                        currentPulseTarget.width + expand * 2,
-                        currentPulseTarget.height + expand * 2
-                    );
-
-                    ctx.font = '10px JetBrains Mono, monospace';
-                    ctx.fillStyle = `rgba(16, 185, 129, ${pulseOpacity * 0.9})`;
-                    ctx.fillText(
-                        `SYS_SIGNAL: ${currentPulseTarget.label}`, 
-                        currentPulseTarget.x - currentPulseTarget.width / 2 - expand, 
-                        currentPulseTarget.y - currentPulseTarget.height / 2 - expand - 6
-                    );
-                    ctx.restore();
-                }
-
-                // Layer 3: Context-Adaptive Cursor Trail
-                if (trail.length > 1) {
-                    ctx.beginPath();
-                    ctx.moveTo(trail[0].x, trail[0].y);
-
-                    if (activeCursorMode === 'hardware') {
-                        for (let i = 1; i < trail.length; i++) {
-                            ctx.lineTo(trail[i-1].x, trail[i].y);
-                            ctx.lineTo(trail[i].x, trail[i].y);
-                        }
-                        ctx.strokeStyle = 'rgba(6, 182, 212, 0.25)';
-                    } else if (activeCursorMode === 'software') {
-                        for (let i = 1; i < trail.length; i++) {
-                            const xc = (trail[i].x + trail[i - 1].x) / 2;
-                            const yc = (trail[i].y + trail[i - 1].y) / 2;
-                            ctx.quadraticCurveTo(trail[i - 1].x, trail[i - 1].y, xc, yc);
-                        }
-                        ctx.strokeStyle = 'rgba(16, 185, 129, 0.25)';
-                    } else {
-                        for (let i = 1; i < trail.length; i++) {
-                            ctx.lineTo(trail[i].x, trail[i].y);
-                        }
-                        ctx.strokeStyle = 'rgba(16, 185, 129, 0.18)';
-                    }
-
-                    ctx.lineWidth = 1;
-                    ctx.stroke();
-
-                    for (let i = 0; i < trail.length; i++) {
-                        const point = trail[i];
-                        const age = Date.now() - point.time;
-                        const life = Math.max(0, 1 - age / 500);
-
-                        if (life <= 0) continue;
-
-                        ctx.save();
-                        if (activeCursorMode === 'software' && i % 3 === 0) {
-                            ctx.font = '9px JetBrains Mono, monospace';
-                            ctx.fillStyle = `rgba(16, 185, 129, ${life * 0.7})`;
-                            ctx.fillText(i % 2 === 0 ? '01' : 'ACK', point.x + 4, point.y + 4);
-                        } else if (activeCursorMode === 'production' && i % 2 === 0) {
-                            ctx.strokeStyle = `rgba(168, 85, 247, ${life * 0.6})`;
-                            ctx.lineWidth = 1;
-                            ctx.beginPath();
-                            ctx.moveTo(point.x - 3, point.y); ctx.lineTo(point.x + 3, point.y);
-                            ctx.moveTo(point.x, point.y - 3); ctx.lineTo(point.x, point.y + 3);
-                            ctx.stroke();
-                        } else {
-                            ctx.beginPath();
-                            ctx.arc(point.x, point.y, point.size * life, 0, Math.PI * 2);
-                            ctx.fillStyle = i === 0 
-                                ? 'rgba(52, 211, 153, 0.8)' 
-                                : `rgba(16, 185, 129, ${life * 0.35})`;
-                            ctx.fill();
-                        }
-                        ctx.restore();
-                    }
-                }
-
-                requestAnimationFrame(draw);
-            }
-
-            draw();
-        }
-
-        window.addEventListener('load', () => {
-            initEngineeringMotion();
-            startPipelineAutoSignal();
-        });
-
-        // Demo Library Download Generator
-        function downloadSample(filename, packageType) {
-            if (typeof gtag === 'function') {
-                gtag('event', 'download_sample', {
-                    'package_type': packageType,
-                    'file_name': filename
-                });
-            } else {
-                console.log(`[Analytics Event] download_sample: package_type=${packageType}, file=${filename}`);
-            }
-
-            const fileContents = generateSampleFileContent(packageType, filename);
-            const blob = new Blob([fileContents], { type: 'text/plain;charset=utf-8' });
-            const url = URL.createObjectURL(blob);
-            
-            const link = document.createElement('a');
-            link.href = url;
-            link.download = filename.replace(/\.(zip|pdf)$/i, '.txt');
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-            URL.revokeObjectURL(url);
-
-            showToast(`Downloading ${filename} — 0 lead capture required!`);
-        }
-
-        function generateSampleFileContent(packageType, filename) {
-            if (packageType === 'product_autopsy') {
-                return `========================================================================
-INIT STUDIO — PRODUCT AUTOPSY DELIVERABLE SAMPLE
-File: ${filename}
-Package: Tier 01 Product Autopsy ($500)
-Case Study: AI Inventory Copilot for Shopify
-Contact: founder@initstudio.co | https://initstudio.co
-========================================================================
-
-1. EXECUTIVE SUMMARY & VERDICT
-------------------------------------------------------------------------
-Target Product: Shopify AI Inventory Copilot & Automated Demand Forecasting
-Overall Feasibility Score: 8.5 / 10
-VERDICT: BUILD WITH SCOPE RESTRICTIONS (GO)
-
-Key Findings:
-- Core problem (stockouts for $1M-$10M GMV merchants) is validated across 14 merchant interviews.
-- Existing apps focus on complex ERP features rather than automated reorder triggers.
-- Technical Feasibility: High. Uses Shopify GraphQL Admin API + Fast API LLM summarization backend.
-- Primary Risk: API rate limits during peak syncs (Black Friday surge).
-- Mitigation: Event-driven WebSockets relay with fall-back SQS queue.
-
-2. COMPETITIVE LANDSCAPE MATRIX
-------------------------------------------------------------------------
-Competitor A (Stocky): Native, basic rules, no predictive AI modeling.
-Competitor B (Inventory Planner): Expensive ($250+/mo), complex UI, 3-week onboarding.
-Init Studio Strategy: Single-click AI restock recommendations via WhatsApp/Slack digest ($49/mo).
-
-3. MVP BOUNDARY & WHAT NOT TO BUILD
-------------------------------------------------------------------------
-DO BUILD:
-[x] Shopify GraphQL webhook listener for inventory updates.
-[x] Automated lead-time forecasting algorithm using 90-day rolling sales data.
-[x] Daily automated Slack / Email digest with one-click purchase order generation.
-
-DO NOT BUILD (Phase 1 Kills):
-[ ] Custom warehouse multi-location bin tracking (Out of scope for MVP).
-[ ] Manual CSV import tools (Use Shopify native data source only).
-[ ] Multi-currency conversion tools.
-
-4. MONETIZATION & UNIT ECONOMICS
-------------------------------------------------------------------------
-Target Price Point: $49 - $99 / month per store.
-Server/LLM API Cost per active store: ~$2.10 / month (Margin: >95%).
-
-========================================================================
-Ready to get this for your product?
-Book a Product Blueprint or Autopsy at https://initstudio.co
-========================================================================`;
-            } else if (packageType === 'product_blueprint') {
-                return `========================================================================
-INIT STUDIO — PRODUCT BLUEPRINT FULL ENGINEERING PACK SAMPLE
-File: ${filename}
-Package: Tier 02 Product Blueprint ($2,500)
-Case Study: AI Inventory Copilot for Shopify
-Website: https://initstudio.co
-========================================================================
-
-1. EXECUTIVE SUMMARY & MVP BUDGET SPECIFICATION
-------------------------------------------------------------------------
-Target MVP Scope: Web App + Fast API Backend + Shopify App Extension
-Estimated MVP Build Budget: $18,000 – $25,000
-Estimated Build Timeline: 4 - 6 Weeks
-
-2. PRD USER STORIES & REQUIREMENTS
-------------------------------------------------------------------------
-[REQ-01] Authentication & Store Connection
-  - User can authorize the app via Shopify OAuth in < 3 clicks.
-  - System initiates initial 90-day order history sync in background.
-
-[REQ-02] AI Demand Forecasting Engine
-  - System aggregates daily velocity per SKU.
-  - LLM pipeline calculates safety stock baseline and days-of-inventory-remaining.
-
-[REQ-03] One-Click Purchase Order Generation
-  - System generates draft PO PDF and sends direct link to vendor contact.
-
-3. SYSTEM ARCHITECTURE & API SPECIFICATION
-------------------------------------------------------------------------
-[Frontend]: Next.js 14, Tailwind CSS, Shopify Polaris Component Framework.
-[Backend]: Fast API (Python), PostgreSQL + Prisma ORM, Redis for queue management.
-[AI Pipeline]: Claude 3.5 Sonnet / OpenAI GPT-4o via Structured JSON Outputs.
-[Infrastructure]: AWS ECS Fargate, Vercel frontend, Supabase DB.
-
-4. AI BUILD PACK PROMPT INSTRUCTIONS (CURSOR / CLAUDE READY)
-------------------------------------------------------------------------
-SYSTEM PROMPT RULES FOR CODE ASSISTANT:
-- Always enforce strict TypeScript interfaces for Shopify GraphQL responses.
-- Enforce idempotency on webhooks using redis key \`webhook:\${id}\`.
-- Use Prisma transactions when updating PO status records.
-
-========================================================================
-Build Credit Notice: 100% of your Blueprint fee ($2,500) applies directly
-toward full 0->1 Product Development with Init Studio.
-========================================================================`;
-            } else {
-                return `========================================================================
-INIT STUDIO — HARDWARE FEASIBILITY PACK SAMPLE
-File: ${filename}
-Package: Hardware & Physical Systems Feasibility ($2,500)
-Case Study: Smart Industrial IoT Sensor System
-Website: https://initstudio.co
-========================================================================
-
-1. SYSTEM SPECIFICATIONS & HARDWARE TOPOLOGY
-------------------------------------------------------------------------
-Device Type: Low-Power Industrial Vibration & Thermal Monitoring Sensor
-MCU: ESP32-S3-WROOM-1 (Dual-core LX7, Wi-Fi + BLE 5.0)
-Sensors: LIS3DH 3-axis Accelerometer + TMP117 High-Accuracy Temp Sensor
-Power Management: LiPo 3.7V 1200mAh + BQ24075 Solar Charger IC
-
-2. PRELIMINARY BILL OF MATERIALS (BOM) & UNIT COGS
-------------------------------------------------------------------------
-Item                            | Qty | Target Cost (1k units)
-------------------------------------------------------------------------
-ESP32-S3 Microcontroller Module |  1  | $2.15
-LIS3DH Accelerometer IC          |  1  | $0.85
-TMP117 Temperature Sensor IC     |  1  | $1.10
-Custom 2-Layer PCB Fabrication  |  1  | $0.60
-Inject-Molded IP67 Enclosure    |  1  | $1.45
-LiPo Battery 1200mAh             |  1  | $1.80
-Passive Electronics & Headers   |  1  | $0.75
-------------------------------------------------------------------------
-Total Estimated COGS per Unit:          $8.70
-
-3. FIRMWARE ARCHITECTURE & DEEP SLEEP LOOP
-------------------------------------------------------------------------
-- Sleep Duration: 59 minutes deep sleep (~15uA current draw).
-- Wakeup Cycle: 60 seconds (Measure sensor array -> Connect Wi-Fi -> MQTT publish -> Sleep).
-- Estimated Battery Lifecycle: 18 months on single charge.
-
-4. DFM (DESIGN FOR MANUFACTURING) & RISK ASSESSMENT
-------------------------------------------------------------------------
-Risk 01: Antenna attenuation caused by waterproof enclosure thickness.
-Mitigation: Maintain 3mm clear zone around PCB trace antenna; test external IPEX connector option.
-Risk 02: Component lead-times on specialized temperature sensor IC.
-Mitigation: Approved drop-in pin-compatible alternative: MAX31875.
-
-========================================================================
-Init Studio — From Idea to Buildable Product
-Contact: founder@initstudio.co | https://initstudio.co
-========================================================================`;
-            }
-        }
-
-        function showToast(message) {
-            const container = document.getElementById('toast-container');
-            const toast = document.createElement('div');
-            toast.className = 'pointer-events-auto bg-dark-card border border-emerald-500/60 text-white px-4 py-3 rounded-xl shadow-2xl font-mono text-xs flex items-center gap-3 transition-all transform translate-y-2 opacity-0';
-            toast.innerHTML = `
-                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shrink-0"></span>
-                <span>${message}</span>
-            `;
-            container.appendChild(toast);
-
-            setTimeout(() => {
-                toast.classList.remove('translate-y-2', 'opacity-0');
-            }, 10);
-
-            setTimeout(() => {
-                toast.classList.add('opacity-0', 'translate-y-2');
-                setTimeout(() => toast.remove(), 300);
-            }, 4000);
-        }
-
-        function openDiscoveryModal(preselectTier = null) {
-            const modal = document.getElementById('discovery-modal');
-            modal.classList.remove('hidden');
-            
-            if (preselectTier) {
-                const stageSelect = document.getElementById('product-stage');
-                if (preselectTier.includes('Autopsy')) stageSelect.value = 'raw';
-                else if (preselectTier.includes('Blueprint')) stageSelect.value = 'validated';
-                else if (preselectTier.includes('Dev')) stageSelect.value = 'ready-to-build';
-            }
-        }
-
-        function closeDiscoveryModal() {
-            const modal = document.getElementById('discovery-modal');
-            modal.classList.add('hidden');
-            document.getElementById('discovery-form').classList.remove('hidden');
-            document.getElementById('modal-success').classList.add('hidden');
-        }
-
-        function handleFormSubmit(e) {
-            e.preventDefault();
-            document.getElementById('discovery-form').classList.add('hidden');
-            document.getElementById('modal-success').classList.remove('hidden');
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
