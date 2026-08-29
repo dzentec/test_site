@@ -228,6 +228,7 @@
 
         // Sample Request Modal (email-gated deliverable samples)
         const sampleLabels = {
+            'Idea Signal': 'Get the Idea Signal sample',
             'Product Autopsy': 'Get the Product Autopsy sample',
             'Product Blueprint': 'Get the Product Blueprint sample',
             'Hardware Feasibility': 'Get the Hardware Feasibility sample'
