@@ -262,10 +262,19 @@
             // NOTE: This is a front-end stub only. No email is actually sent yet —
             // wiring this to a real delivery service (e.g. a form backend + mailer)
             // is a follow-up integration step.
+            const productType = document.getElementById('sample-product-type').value;
+            const role = document.getElementById('sample-role').value;
+            const stage = document.getElementById('sample-stage').value;
+
             if (typeof gtag === 'function') {
-                gtag('event', 'sample_requested', { 'sample_name': currentSampleRequest });
+                gtag('event', 'sample_requested', {
+                    'sample_name': currentSampleRequest,
+                    'product_type': productType,
+                    'role': role,
+                    'product_stage': stage
+                });
             } else {
-                console.log(`[Analytics Event] sample_requested: sample=${currentSampleRequest}`);
+                console.log(`[Analytics Event] sample_requested: sample=${currentSampleRequest}, product_type=${productType}, role=${role}, stage=${stage}`);
             }
             document.getElementById('sample-form').classList.add('hidden');
             document.getElementById('sample-modal-success').classList.remove('hidden');
