@@ -309,6 +309,7 @@
                 const stageSelect = document.getElementById('product-stage');
                 if (preselectTier.includes('Idea Signal')) stageSelect.value = 'signal';
                 else if (preselectTier.includes('Autopsy')) stageSelect.value = 'raw';
+                else if (preselectTier.includes('Hardware Feasibility')) stageSelect.value = 'hardware';
                 else if (preselectTier.includes('Blueprint')) stageSelect.value = 'validated';
                 else if (preselectTier.includes('Dev')) stageSelect.value = 'ready-to-build';
             }
