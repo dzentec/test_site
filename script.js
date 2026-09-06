@@ -3,7 +3,7 @@
             1: "Stage 01 (IDEA SIGNAL — $490): Is there enough signal to investigate this idea further?",
             2: "Stage 02 (PRODUCT AUTOPSY — $2,490): Market, technical and economic risk analysis — a BUILD / PIVOT / KILL verdict.",
             3: "Stage 03 (PRODUCT BLUEPRINT — $4,900): 18-document build-ready specification — PRD, architecture, AI Build Pack.",
-            4: "Stage 04 (0→1 DEVELOPMENT — From $12k): Turn a completed Blueprint into a working product."
+            4: "Stage 04 (0→1 DEVELOPMENT — Selected): Turn a completed Blueprint or Hardware Feasibility into a working product."
         };
 
         let currentAutoStage = 1;
